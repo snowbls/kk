@@ -1,0 +1,2476 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>세이란학원 — 星蘭学院 신상기록부</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Cormorant+Garamond:wght@600;700&family=Gaegu:wght@400;700&family=IBM+Plex+Mono:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --olive:#6B4F5E; --navy:#241825; --ink:#2B2228;
+  --paper:#F3E9E4; --paper-alt:#E8D9D3; --card:#FBF3EF;
+  --accent:#B0475A; --gold:#C9A227; --line:#D9C2BE; --white:#FFFFFF;
+  --mono:'IBM Plex Mono', monospace; --stencil:'Cormorant Garamond', serif;
+  --display:'Shippori Mincho', 'Noto Sans KR', sans-serif; --body:'Noto Sans KR', sans-serif;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body); background:var(--paper);
+  background-image:linear-gradient(rgba(75,90,56,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(75,90,56,0.04) 1px, transparent 1px);
+  background-size:26px 26px; color:var(--ink); font-size:18px; line-height:1.65; -webkit-font-smoothing:antialiased; word-break:keep-all; overflow-wrap:break-word;}
+img{max-width:100%; display:block;}
+h1,h2,h3{font-family:var(--display); font-weight:900; letter-spacing:0; line-height:1.3; color:var(--navy);}
+button{font-family:inherit;}
+
+/* Topbar */
+/* BGM widget */
+.bgm-widget{position:fixed; bottom:20px; right:20px; z-index:200; display:flex; align-items:center; flex-direction:row-reverse; background:var(--navy); border:2px solid var(--gold); border-radius:26px; box-shadow:2px 4px 10px rgba(0,0,0,.35); overflow:hidden; transition:width .22s ease;}
+.bgm-fab{width:48px; height:48px; min-width:48px; border-radius:50%; border:none; background:transparent; color:var(--gold); display:flex; align-items:center; justify-content:center; cursor:pointer; flex:none;}
+.bgm-fab.playing{animation:bgmPulse 2s ease-in-out infinite;}
+@keyframes bgmPulse{0%,100%{box-shadow:0 0 0 0 rgba(176,141,43,.45);} 50%{box-shadow:0 0 0 7px rgba(176,141,43,0);}}
+.bgm-panel{display:flex; align-items:center; gap:10px; max-width:0; opacity:0; overflow:hidden; padding:0; transition:max-width .22s ease, opacity .18s ease, padding .22s ease;}
+.bgm-panel.open{max-width:160px; opacity:1; padding:0 6px 0 14px;}
+.bgm-row{display:flex; align-items:center; gap:10px;}
+.bgm-playbtn{width:28px; height:28px; border-radius:50%; border:1.5px solid var(--gold); background:transparent; color:var(--gold); display:flex; align-items:center; justify-content:center; cursor:pointer; flex:none;}
+.bgm-vol{-webkit-appearance:none; appearance:none; flex:1; height:3px; background:var(--olive); border-radius:2px; outline:none; cursor:pointer;}
+.bgm-vol::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:12px; height:12px; border-radius:50%; background:var(--gold); border:1.5px solid var(--navy); cursor:pointer;}
+.bgm-vol::-moz-range-thumb{width:12px; height:12px; border-radius:50%; background:var(--gold); cursor:pointer; border:none;}
+
+.topbar{position:sticky; top:0; z-index:100; background:var(--navy); border-bottom:5px solid var(--accent); box-shadow:0 3px 0 var(--olive);}
+.mobile-menu-btn{display:none; align-items:center; gap:8px; background:transparent; border:1.5px solid var(--gold); color:var(--gold); font-family:var(--mono); font-weight:700; font-size:0.9rem; padding:9px 14px; cursor:pointer; margin-left:auto;}
+.mobile-menu-panel{display:none; position:fixed; inset:0; z-index:250; background:rgba(10,11,16,.94); flex-direction:column; padding:90px 24px 24px; gap:10px; overflow-y:auto;}
+.mobile-menu-panel.open{display:flex;}
+.mobile-menu-close{position:fixed; top:16px; right:18px; z-index:251; background:transparent; border:1.5px solid var(--gold); color:var(--gold); width:40px; height:40px; border-radius:50%; font-size:1.1rem; cursor:pointer;}
+.mobile-menu-item{background:var(--navy); border:2px solid var(--olive); color:#B7BFA9; font-family:var(--mono); font-weight:700; font-size:1.05rem; padding:16px; text-align:left; cursor:pointer; transition:all .15s ease;}
+.mobile-menu-item.active{background:rgba(161,48,28,.2); border-color:var(--accent); color:var(--white);}
+.next-tab-btn{display:none; align-items:center; gap:6px; position:fixed; bottom:20px; left:20px; z-index:190; background:var(--navy); border:2px solid var(--gold); color:var(--gold); font-family:var(--mono); font-weight:700; font-size:0.85rem; padding:11px 16px; border-radius:24px; cursor:pointer; box-shadow:2px 4px 10px rgba(0,0,0,.35);}
+
+.topbar-inner{max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:24px; padding:14px 20px;}
+.brand{font-family:var(--display); font-weight:900; color:var(--white); font-size:1.35rem; white-space:nowrap;}
+.brand span{font-family:var(--stencil); color:var(--gold); font-size:0.62rem; display:block; letter-spacing:0.15em; margin-top:3px;}
+.tabs{display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; flex:1;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab-btn{font-family:var(--mono); font-weight:700; font-size:0.92rem; color:#B7BFA9; background:transparent; border:none; padding:12px 16px; cursor:pointer; white-space:nowrap; border-bottom:3px solid transparent; transition:all .15s ease;}
+.tab-btn:hover{color:var(--white);}
+.tab-btn.active{color:var(--white); border-bottom-color:var(--accent); background:rgba(161,48,28,0.15);}
+
+main{max-width:1200px; margin:0 auto; padding:0 20px 100px;}
+.tab-panel{display:none; animation:fadein .3s ease;}
+.tab-panel.active{display:block;}
+@keyframes fadein{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+.stamp-tag{font-family:var(--stencil); font-size:0.68rem; letter-spacing:0.12em; color:var(--accent); border:2px solid var(--accent); padding:4px 10px; display:inline-block; transform:rotate(-2deg); margin-bottom:14px;}
+.file-id{font-family:var(--mono); font-weight:700; font-size:0.85rem; color:var(--olive);}
+
+/* Hero */
+.hero{position:relative; margin-top:36px; border:3px solid var(--navy); background:var(--card); padding:40px 34px 34px;}
+.hero::before{content:"星蘭学院 SCHOOL FILE"; position:absolute; top:-15px; left:28px; background:var(--navy); color:var(--gold); font-family:var(--mono); font-weight:700; font-size:0.78rem; letter-spacing:0.08em; padding:4px 12px;}
+.hero-topline{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px; margin-bottom:18px;}
+.hero h1{font-size:clamp(2.6rem, 7.5vw, 4.4rem); font-weight:900; line-height:1.25; letter-spacing:-0.01em; margin:6px 0 14px;}
+.hero .sub{font-size:clamp(1.1rem, 2.3vw, 1.35rem); font-weight:500; max-width:640px; margin-bottom:28px;}
+.hero .sub b{color:var(--accent);}
+.notice-box{position:relative; background:var(--white); border:2px solid var(--ink); padding:26px 28px 24px; max-width:600px; margin-bottom:32px; font-size:1.03rem;}
+.notice-box .tag{font-family:var(--mono); font-size:0.8rem; color:var(--accent); font-weight:700; letter-spacing:0.05em; display:block; margin-bottom:10px;}
+.notice-box .corner-stamp{position:absolute; top:14px; right:16px; font-family:var(--stencil); font-size:0.62rem; color:var(--accent); border:2px solid var(--accent); padding:3px 8px; transform:rotate(6deg); opacity:0.85;}
+.stat-bar{display:flex; flex-wrap:wrap; border-top:3px solid var(--navy); border-bottom:3px solid var(--navy);}
+.stat{flex:1 1 140px; padding:16px 18px; border-right:1px solid var(--line);}
+.stat:last-child{border-right:none;}
+.stat .num{font-family:var(--mono); font-size:1.6rem; font-weight:700; color:var(--navy);}
+.stat .label{font-size:0.85rem; color:#5b5f4a;}
+
+.ensemble{padding:48px 0;}
+.ensemble h2{font-size:clamp(1.6rem,4vw,2.2rem); margin-bottom:16px;}
+.ensemble p{max-width:860px; margin-bottom:32px; font-size:1.12rem; line-height:1.85;}
+.roster-strip{display:grid; grid-template-columns:repeat(5, 1fr); gap:14px;}
+.roster-chip{background:var(--card); border:2px solid var(--navy); overflow:hidden;}
+.roster-thumb{width:100%; aspect-ratio:3/4; overflow:hidden; background:var(--paper-alt); cursor:zoom-in; display:flex; align-items:center; justify-content:center; border-bottom:3px solid var(--chip-color, var(--navy));}
+.roster-thumb img{width:100%; height:100%; object-fit:cover;}
+.roster-thumb .fallback{font-family:var(--mono); font-weight:700; color:var(--chip-color, var(--navy)); font-size:1rem;}
+.roster-chip .meta{padding:8px 10px;}
+.roster-chip .name{font-weight:700; font-size:1.08rem;}
+.roster-chip .club{font-family:var(--mono); font-size:0.85rem; color:#666a52;}
+
+.section-head{padding:44px 0 20px; border-bottom:2px dashed var(--line); margin-bottom:24px;}
+.section-head h2{font-size:clamp(1.8rem,4.5vw,2.5rem);}
+.section-head p{color:#4a4e3c; max-width:640px; margin-top:8px;}
+
+/* Character record - A4 서류 + I/II 항목번호, 사진은 여권사진 비율 */
+.prof-shelf{display:flex; align-items:flex-start; gap:0; position:relative; padding-bottom:40px;}
+.prof-tabs{display:flex; flex-direction:column; gap:10px; padding-top:66px; flex:none;}
+.prof-tab{
+  width:88px; padding:14px 6px 17px; text-align:center; cursor:pointer;
+  font-family:var(--body); font-weight:800; font-size:0.95rem; color:#2E2A1B;
+  border:none; position:relative;
+  box-shadow:2px 4px 7px rgba(0,0,0,.22);
+  transform:rotate(-2deg);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.prof-tab:nth-child(even){transform:rotate(2deg);}
+.prof-tab::after{
+  content:""; position:absolute; bottom:0; right:0; width:0; height:0;
+  border-style:solid; border-width:0 0 13px 13px;
+  border-color:transparent transparent rgba(0,0,0,.18) transparent;
+}
+.prof-tab:hover{transform:rotate(0deg) translateY(-3px) scale(1.03); box-shadow:2px 7px 12px rgba(0,0,0,.28);}
+.prof-tab.active{transform:rotate(0deg) translateY(-6px) scale(1.1); box-shadow:3px 10px 18px rgba(0,0,0,.38); z-index:5;}
+
+.char-card{
+  background:#FBFAF6; border:1px solid #C9C2A8; box-shadow:6px 9px 20px rgba(0,0,0,.2);
+  position:relative; padding:44px 48px 38px; flex:1; max-width:800px; margin-left:-2px;
+}
+.char-card::before{content:""; position:absolute; inset:13px; border:1px solid #D8D2BC; pointer-events:none;}
+.char-card .card-stamp{position:absolute; top:20px; right:26px; width:70px; height:70px; border-radius:50%; border:3px solid var(--accent); color:var(--accent); font-family:var(--mono); font-weight:800; font-size:0.68rem; display:flex; align-items:center; justify-content:center; text-align:center; transform:rotate(-10deg); opacity:.75; line-height:1.22; z-index:1;}
+
+.char-head{text-align:center; border-bottom:4px double var(--navy); padding-bottom:14px; margin-bottom:22px; position:relative; z-index:1;}
+.char-head .doc-title{font-family:var(--display); font-weight:900; font-size:1.6rem; color:var(--navy); letter-spacing:0.05em;}
+.char-head .doc-sub{font-family:var(--mono); font-size:0.92rem; color:var(--olive); margin-top:5px;}
+
+.section-num{
+  display:inline-block; font-family:var(--mono); font-weight:800; font-size:0.98rem; color:var(--accent);
+  background:#F0ECD9; border:1px solid #D8D2BC; padding:5px 14px; margin:0 0 16px; position:relative; z-index:1;
+}
+
+.char-idbox{display:flex; gap:26px; align-items:center; margin-bottom:26px; position:relative; z-index:1;}
+.char-photo{width:190px; height:246px; flex:none; border:2px solid var(--navy); border-radius:6px; background:var(--paper-alt); overflow:hidden; cursor:zoom-in; display:flex; align-items:center; justify-content:center;}
+.char-photo img{width:100%; height:100%; object-fit:cover;}
+.char-photo .fallback{font-family:var(--mono); font-weight:700; font-size:1.8rem; color:var(--chip-color,var(--navy));}
+.char-fields{flex:1; border-collapse:collapse; width:100%; font-size:1.14rem;}
+.char-fields tr{border-bottom:1px solid #E5DFC6;}
+.char-fields tr:last-child{border-bottom:none;}
+.char-fields td{padding:15px 6px;}
+.char-fields td.k{font-family:var(--mono); font-weight:700; color:var(--olive); width:76px;}
+.char-fields td.v{color:var(--ink); font-weight:800;}
+.char-fields tr.nm td.v{font-size:1.5rem; font-weight:900; color:var(--navy);}
+
+.char-remarks{position:relative; z-index:1; background-image:repeating-linear-gradient(#FBFAF6 0px, #FBFAF6 29px, #E6E0C8 30px, #FBFAF6 31px); padding:20px 22px 4px; border:1.5px solid var(--navy); border-top:none;}
+.char-quote{font-weight:700; color:var(--ink); border-left:4px solid var(--accent); padding-left:15px; margin-bottom:18px; font-size:1.16rem;}
+.remarks-label{font-family:var(--mono); font-size:0.92rem; color:var(--olive); font-weight:700; letter-spacing:0.08em; margin-bottom:11px;}
+.char-remarks ul{padding-left:21px; font-size:1.1rem; margin-bottom:17px;}
+.char-remarks ul li{margin-bottom:6px;}
+.likes{display:flex; flex-wrap:wrap; gap:13px 0; border-top:1px dashed var(--line); padding-top:15px;}
+.like-box{font-size:1.04rem; border:1px solid var(--line); padding:7px 13px; margin-right:13px; background:var(--white);}
+.like-box b{color:var(--accent); font-family:var(--mono); font-size:0.82rem; letter-spacing:0.04em; display:block;}
+
+/* School - 신상기록부 톤에 맞춘 문서형 레이아웃 */
+.school-wrap{padding-top:6px;}
+.school-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
+.school-block{background:var(--card); border:2px solid var(--navy); padding:24px 26px 22px; position:relative;}
+.school-block .corner-tag{position:absolute; top:-11px; left:22px; background:var(--navy); color:var(--gold); font-family:var(--mono); font-weight:700; font-size:0.68rem; letter-spacing:0.08em; padding:3px 10px;}
+.school-block h3{font-size:1.1rem; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--line); display:flex; align-items:center; gap:8px; font-family:var(--display); font-weight:900;}
+.school-block h3::before{content:""; width:9px; height:9px; background:var(--accent); flex:none;}
+.building-list{list-style:none; font-size:0.97rem;}
+.building-list li{padding:8px 2px 8px 16px; border-bottom:1px dashed var(--line); position:relative;}
+.building-list li::before{content:"·"; position:absolute; left:0; top:6px; color:var(--accent); font-weight:900; font-size:1.2rem;}
+.building-list li:last-child{border-bottom:none;}
+.building-list b{color:var(--navy);}
+
+/* 일과표 */
+.timeline{list-style:none; font-size:0.95rem;}
+.timeline li{display:flex; gap:12px; padding:7px 0; border-bottom:1px dashed var(--line);}
+.timeline li:last-child{border-bottom:none;}
+.timeline .time{font-family:var(--mono); font-weight:700; color:var(--white); background:var(--accent); flex:none; width:98px; text-align:center; padding:2px 0; font-size:0.82rem;}
+
+.event-list{list-style:none; font-size:0.95rem;}
+.event-list li{display:flex; gap:12px; padding:7px 0; border-bottom:1px dashed var(--line); align-items:center;}
+.event-list li:last-child{border-bottom:none;}
+.event-list .month{font-family:var(--mono); font-weight:700; color:var(--navy); background:var(--gold); flex:none; width:70px; text-align:center; padding:3px 0; font-size:0.8rem; border-radius:2px;}
+
+/* 교칙 - notice-box와 같은 계열의 공지문 */
+.school-flavor{grid-column:1/-1; position:relative; background:var(--white); border:2px solid var(--ink); padding:26px 28px 22px;}
+.school-flavor .corner-stamp{position:absolute; top:14px; right:16px; font-family:var(--stencil); font-size:0.62rem; color:var(--accent); border:2px solid var(--accent); padding:3px 8px; transform:rotate(6deg); opacity:0.85;}
+.school-flavor h3{color:var(--navy); font-family:var(--display); font-size:1.25rem; border-bottom:none; padding-bottom:0; margin-bottom:4px;}
+.school-flavor h3::before{display:none;}
+.school-flavor .tag{font-family:var(--mono); font-size:0.8rem; color:var(--accent); font-weight:700; letter-spacing:0.05em; display:block; margin-bottom:14px;}
+.school-flavor ul{padding-left:18px; font-size:0.98rem;}
+.school-flavor li{margin-bottom:9px;}
+
+/* 교훈 명판 */
+.chant-block{
+  margin-top:18px; background:var(--navy); border:1px solid var(--gold); padding:22px 20px 18px; text-align:center; position:relative;
+}
+.chant-block::before{content:""; position:absolute; inset:5px; border:1px solid rgba(176,141,43,.5); pointer-events:none;}
+.chant-block .motto{font-family:var(--display); font-weight:900; color:var(--gold); font-size:1.4rem; letter-spacing:0.18em; margin-bottom:9px;}
+.chant-block .motto-sub{font-family:var(--mono); font-size:0.82rem; color:#C9C2A8; line-height:1.7;}
+
+/* 캠퍼스 지도 */
+.map-block{grid-column:1/-1;}
+.campus-map-wrap{background:var(--white); border:1px solid var(--line); padding:6px; position:relative;}
+.campus-map-wrap img{width:100%; height:auto; display:block;}
+.hotspot-layer{position:absolute; inset:6px; pointer-events:none;}
+.map-hotspot{
+  position:absolute; transform:translate(-50%,-50%); width:22px; height:22px; border-radius:50%;
+  background:rgba(161,48,28,.88); border:2px solid #fff; box-shadow:0 2px 6px rgba(0,0,0,.45);
+  cursor:pointer; pointer-events:auto;
+}
+.map-hotspot::before{
+  content:""; position:absolute; inset:-7px; border-radius:50%; border:2px solid rgba(161,48,28,.55);
+  animation:hsPulse 2.2s ease-out infinite;
+}
+.map-hotspot.active{background:var(--gold); border-color:var(--navy);}
+.map-hotspot.active::before{border-color:rgba(176,141,43,.6);}
+@keyframes hsPulse{0%{transform:scale(0.7); opacity:1;} 100%{transform:scale(1.9); opacity:0;}}
+.map-hint{font-family:var(--mono); font-size:0.82rem; color:var(--olive); margin-bottom:10px;}
+.map-hotspot .hs-label{
+  position:absolute; top:50%; left:135%; transform:translateY(-50%); white-space:nowrap;
+  background:var(--navy); color:#fff; font-family:var(--mono); font-size:0.68rem; font-weight:700;
+  padding:3px 8px; opacity:0; transition:opacity .15s ease; pointer-events:none;
+}
+.map-hotspot:hover .hs-label, .map-hotspot.active .hs-label{opacity:1;}
+.map-callout{
+  position:absolute; background:var(--card); border:2px solid var(--navy); box-shadow:0 12px 28px rgba(0,0,0,.42);
+  padding:20px 36px 18px 22px; font-size:1rem; z-index:40; opacity:0; pointer-events:none; transition:opacity .15s ease;
+}
+.map-callout.show{opacity:1; pointer-events:auto;}
+.map-callout .callout-close{position:absolute; top:8px; right:10px; background:none; border:none; font-size:1.3rem; line-height:1; color:var(--olive); cursor:pointer;}
+.map-callout .spot-title{font-weight:800; color:var(--navy); font-size:1.18rem; margin-bottom:9px; display:flex; gap:8px; align-items:center; flex-wrap:wrap;}
+.map-callout .spot-chip{font-family:var(--mono); font-size:0.72rem; font-weight:700; padding:3px 8px; border-radius:2px; color:#fff;}
+.map-callout .spot-text{line-height:1.75; color:#3a3d2e; font-size:0.98rem;}
+
+/* 일과표 인터랙션 */
+.timeline li{cursor:pointer;}
+.timeline li:hover{background:rgba(161,48,28,0.06);}
+.timeline li.active{background:rgba(161,48,28,0.12);}
+.timeline li.active .time{background:var(--gold); color:var(--navy);}
+.tt-info{margin-top:14px; background:var(--paper); border-left:4px solid var(--olive); padding:14px 16px; font-size:0.92rem; line-height:1.65; color:#3a3d2e; min-height:56px;}
+.tt-info .hint{color:#8a8262; font-family:var(--mono); font-size:0.82rem;}
+.tt-line{font-size:1rem;}
+.tt-step{margin-top:8px; font-family:var(--mono); font-size:0.76rem; color:#8a8262;}
+
+/* 메모 - 여학생 재학 관련 특이사항 */
+.memo-note{
+  grid-column:1/-1; position:relative; background:var(--card);
+  border:1px dashed var(--olive); padding:24px 28px 20px;
+}
+.memo-note .corner-tag{position:absolute; top:-11px; left:22px; background:var(--gold); color:var(--navy); font-family:var(--mono); font-weight:700; font-size:0.68rem; letter-spacing:0.08em; padding:3px 10px;}
+.memo-note .tag{font-family:var(--mono); font-weight:700; font-size:0.8rem; color:var(--accent); letter-spacing:0.05em; display:block; margin-bottom:12px;}
+.memo-note ul{padding-left:20px; font-size:1rem; line-height:1.75; font-family:var(--body); color:var(--ink);}
+.memo-note li{margin-bottom:10px;}
+
+/* Gallery - 사진첩(폴라로이드) 느낌 */
+.gallery-sub{font-family:var(--mono); font-size:0.85rem; color:var(--accent); font-weight:700; margin:28px 0 12px; letter-spacing:0.05em;}
+.gallery-grid{display:grid; grid-template-columns:repeat(4, minmax(160px,1fr)); gap:22px 16px; margin-bottom:20px; padding:4px;}
+.gallery-box{
+  background:#FBFAF6; border:1px solid #C9C2A8; padding:10px 10px 30px;
+  box-shadow:3px 5px 10px rgba(0,0,0,.18); cursor:zoom-in; position:relative;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.gallery-box:nth-child(3n+1){transform:rotate(-2deg);}
+.gallery-box:nth-child(3n+2){transform:rotate(1.5deg);}
+.gallery-box:nth-child(3n){transform:rotate(-1deg);}
+.gallery-box:hover{transform:rotate(0deg) scale(1.04); box-shadow:5px 8px 16px rgba(0,0,0,.28); z-index:2;}
+.gallery-hero{position:relative; width:100%; max-width:640px; min-height:220px; margin:0 auto 22px; overflow:hidden; border:2px solid var(--gold); background:#000;}
+.gallery-hero-media{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) rotate(90deg); transform-origin:center center; display:block;}
+
+.gallery-box .photo-inner{aspect-ratio:3/4; background:var(--paper-alt); overflow:hidden; display:flex; align-items:center; justify-content:center;}
+.gallery-box img{width:100%; height:100%; object-fit:cover; object-position:top center;}
+.gallery-box .fallback{font-family:var(--mono); font-size:0.8rem; color:#75795f; text-align:center; padding:6px;}
+.gallery-box .caption{position:absolute; bottom:6px; left:0; right:0; text-align:center; font-family:'Gaegu', var(--body); font-size:0.85rem; color:#5b5642;}
+.bcut-block{margin-bottom:38px;}
+.bcut-head{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+.bcut-swatch{width:14px; height:14px; flex:none; border-radius:50%;}
+.bcut-name{font-weight:800; font-size:1.15rem; color:var(--navy);}
+.bcut-club{font-family:var(--mono); font-size:0.82rem; color:#5b5f4a;}
+
+/* 학생증 발급 */
+.idcard-wrap{display:flex; gap:36px; flex-wrap:wrap; padding-bottom:60px; align-items:flex-start;}
+.idcard-form{flex:1 1 280px; display:flex; flex-direction:column;}
+.idf-label{font-family:var(--mono); font-size:0.8rem; font-weight:700; color:var(--olive); margin-top:16px; margin-bottom:7px;}
+.idf-input{font-family:var(--body); font-size:1rem; padding:10px 12px; border:1.5px solid var(--line); background:var(--card); color:var(--ink);}
+.idf-input:focus{outline:none; border-color:var(--accent);}
+.idf-photo-btn{font-family:var(--mono); font-weight:700; font-size:0.88rem; background:var(--navy); color:var(--gold); border:none; padding:11px 16px; cursor:pointer;}
+.idf-photo-btn:hover{background:var(--accent); color:#fff;}
+.idf-generate-btn{margin-top:26px; font-family:var(--mono); font-weight:700; font-size:0.95rem; background:var(--accent); color:#fff; border:none; padding:14px 18px; cursor:pointer;}
+.idf-generate-btn:hover{background:#7A1E10;}
+
+/* 사진 자르기 */
+.idf-crop-wrap{margin-top:10px; background:var(--card); border:1px solid var(--line); padding:14px; text-align:center;}
+.idf-crop-frame{
+  width:150px; height:200px; margin:0 auto; overflow:hidden; background:#1c1c1c; position:relative;
+  border:1px solid var(--navy); cursor:grab; touch-action:none;
+}
+.idf-crop-frame:active{cursor:grabbing;}
+.idf-crop-frame img{position:absolute; top:0; left:0; max-width:none; user-select:none; -webkit-user-drag:none;}
+.idf-crop-wrap input[type="range"]{width:100%; margin-top:12px;}
+.idf-crop-actions{display:flex; gap:8px; margin-top:10px;}
+.idf-crop-actions .idf-photo-btn{flex:1;}
+
+.idcard-preview-wrap{flex:1 1 320px; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:6px; gap:12px;}
+.idcard-scene{width:100%; max-width:420px; aspect-ratio:1260/800; perspective:1600px; position:relative; overflow:hidden;}
+.idcard-scale-wrap{width:1260px; height:800px; position:absolute; top:0; left:0; transform-origin:top left;}
+.idcard{
+  width:1260px; height:800px; position:relative; transform-style:preserve-3d;
+  transition:transform .6s cubic-bezier(.4,.2,.2,1); cursor:pointer;
+}
+.idcard.flipped{transform:rotateY(180deg);}
+.idcard-face{
+  position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden;
+  border-radius:14px; overflow:hidden; display:flex; flex-direction:column;
+  box-shadow:0 10px 26px rgba(0,0,0,.35);
+}
+.idcard-flip-hint{font-family:var(--mono); font-size:0.78rem; color:#8a8262; text-align:center;}
+.idcard-flip-hint button{background:none; border:none; color:var(--accent); font-family:var(--mono); cursor:pointer; text-decoration:underline; font-size:0.78rem;}
+
+/* ===== 앞면 (실제 템플릿 PNG, 1260x800 네이티브 좌표) ===== */
+.idcard-front{
+  background-image:url('https://raw.githubusercontent.com/snowbls/kk/main/앞면.png');
+  background-size:1260px 800px; background-position:center;
+}
+.idf-tpl-photo{
+  position:absolute; left:65px; top:250px; width:280px; height:360px;
+  overflow:hidden; background:transparent;
+}
+.idf-tpl-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+.idf-tpl-name{
+  position:absolute; left:520px; top:206px; width:480px; height:60px;
+  display:flex; align-items:center; justify-content:center; white-space:nowrap;
+  font-family:var(--display); font-weight:700; font-size:34px; color:#1B2233; line-height:1;
+}
+.idf-tpl-y, .idf-tpl-m, .idf-tpl-d{
+  position:absolute; top:297px; height:58px;
+  display:flex; align-items:center; justify-content:flex-end; white-space:nowrap;
+  font-family:var(--display); font-weight:700; font-size:28px; color:#1B2233; line-height:1;
+}
+.idf-tpl-y{left:520px; width:172px; padding-right:8px;}
+.idf-tpl-m{left:730px; width:66px; padding-right:8px;}
+.idf-tpl-d{left:828px; width:73px; padding-right:8px;}
+
+/* ===== 뒷면 (실제 템플릿 PNG 사용) ===== */
+.idcard-back{
+  background-image:url('https://raw.githubusercontent.com/snowbls/kk/main/뒷면.png');
+  background-size:100% 100%; background-position:center; transform:rotateY(180deg);
+}
+
+
+.log-empty{border:2px dashed var(--line); padding:40px 20px; text-align:center; color:#75795f; font-size:0.95rem;}
+.journal{display:flex; align-items:flex-start; gap:0; padding-bottom:60px;}
+.journal-tabs{display:flex; flex-direction:column; gap:9px; padding-top:34px; flex:none;}
+.journal-tab{
+  width:126px; padding:10px 14px; text-align:left; cursor:pointer; border:none;
+  font-family:var(--body); font-weight:800; font-size:0.86rem; color:#2E2A1B; background:var(--card);
+  box-shadow:2px 3px 6px rgba(0,0,0,.2); transform:rotate(-1.4deg); position:relative;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.journal-tab .jt-title{display:block; word-break:keep-all; overflow-wrap:break-word; line-height:1.35;}
+.journal-tab .jt-count{display:block; text-align:right; font-family:var(--mono); font-size:0.68rem; opacity:.6; margin-top:3px;}
+.journal-tab:nth-child(even){transform:rotate(1.4deg);}
+.journal-tab:hover{transform:rotate(0deg) translateX(3px);}
+.journal-tab.active{transform:rotate(0deg) translateX(7px); box-shadow:3px 7px 14px rgba(0,0,0,.32); z-index:3; background:var(--navy); color:var(--white);}
+.journal-tab.bonus{background:var(--gold);}
+.journal-tab.bonus.active{background:var(--gold); color:var(--navy);}
+
+.journal-page{
+  flex:1; min-width:0; position:relative; background:#FBFAF6; border:1px solid #C9C2A8; box-shadow:6px 10px 22px rgba(0,0,0,.22);
+  padding:30px 30px 26px 50px; min-height:320px;
+  background-image:repeating-linear-gradient(#FBFAF6 0px, #FBFAF6 29px, #E6E0C8 30px, #FBFAF6 31px);
+}
+.journal-page::before{
+  content:""; position:absolute; left:16px; top:18px; bottom:18px; width:2px;
+  background-image:radial-gradient(circle, #B8B096 2.6px, transparent 2.8px);
+  background-size:100% 22px; background-repeat:repeat-y;
+}
+.journal-page-head{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px; border-bottom:3px double var(--navy); padding-bottom:10px; margin-bottom:18px;}
+.journal-cat-title{font-family:var(--display); font-weight:900; font-size:1.22rem; color:var(--navy);}
+.journal-page-count{font-family:var(--mono); font-size:0.82rem; color:var(--olive);}
+.journal-page-body{animation:pageFlip .3s ease;}
+@keyframes pageFlip{from{opacity:0; transform:translateX(14px);} to{opacity:1; transform:translateX(0);}}
+.journal-nav{display:flex; justify-content:space-between; margin-top:22px; padding-top:16px; border-top:1px dashed var(--line);}
+.journal-nav-btn{font-family:var(--mono); font-weight:700; font-size:0.85rem; background:var(--navy); color:var(--gold); border:none; padding:9px 16px; cursor:pointer;}
+.journal-nav-btn:hover:not(:disabled){background:var(--accent); color:#fff;}
+.journal-nav-btn:disabled{opacity:.3; cursor:default;}
+
+.log-num{display:inline-block; font-family:var(--mono); font-weight:800; font-size:0.8rem; color:#fff; background:var(--accent); padding:3px 12px; margin-bottom:14px; letter-spacing:0.05em;}
+.log-user{background:#EFEAD6; border-left:4px solid var(--gold); padding:10px 16px; margin-bottom:16px; font-weight:700; color:var(--navy); font-size:1.02rem;}
+.log-user b{font-family:var(--mono); font-size:0.72rem; color:var(--accent); display:block; margin-bottom:3px; font-weight:700;}
+.log-narr{color:#736C58; font-size:0.96rem; line-height:1.75; margin-bottom:16px;}
+.log-line{margin-bottom:16px;}
+.log-line .who{font-weight:900; color:var(--navy); margin-right:6px;}
+.log-line .jp{font-weight:700; font-size:1.03rem; margin-top:2px;}
+.log-line .kr{font-weight:700; color:#3a3d2e; font-size:0.96rem; margin-top:2px;}
+
+.lightbox{position:fixed; inset:0; background:rgba(15,17,10,0.94); display:none; align-items:center; justify-content:center; z-index:1000; padding:30px; cursor:zoom-out;}
+.lightbox.active{display:flex;}
+.lightbox img{max-width:92vw; max-height:90vh; object-fit:contain; box-shadow:0 10px 40px rgba(0,0,0,.5); border:3px solid var(--gold);}
+
+footer{text-align:center; padding:30px 20px 50px; font-family:var(--mono); font-size:0.85rem; color:#75795f;}
+
+/* ===== 관계 씬 (게임 형식: 클릭으로 대사 진행 + 종료 시 전체 다시보기) ===== */
+.vn-wrap{padding-bottom:60px;}
+.vn-title{font-family:var(--stencil); font-size:0.85rem; letter-spacing:0.1em; color:var(--gold); background:var(--navy); display:inline-block; padding:6px 14px; margin-bottom:6px;}
+.vn-hint{font-family:var(--mono); font-size:0.9rem; color:var(--olive); margin-bottom:16px;}
+.vn-hint b{color:var(--accent);}
+.vn-hint button{background:none; border:none; color:var(--accent); font-family:var(--mono); cursor:pointer; text-decoration:underline; font-size:0.9rem; padding:0; margin-left:6px;}
+
+.vn-hub-grid{display:grid; grid-template-columns:repeat(5, 1fr); gap:12px; margin-bottom:24px;}
+.vn-pick{cursor:pointer; position:relative; border:3px solid var(--navy); background:var(--navy); overflow:hidden; transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;}
+.vn-pick:hover{transform:translateY(-4px);}
+.vn-pick .ph{width:100%; aspect-ratio:3/4; overflow:hidden; background:linear-gradient(180deg,#2A3323,var(--navy)); display:flex; align-items:flex-end; justify-content:center; position:relative;}
+.vn-pick .ph img{width:100%; height:100%; object-fit:cover; object-position:top center;}
+.vn-pick .ph .fallback{color:#EFE9D2; font-family:var(--mono); font-weight:700; padding-bottom:20px;}
+.vn-pick .ribbon{position:absolute; left:0; right:0; bottom:0; background:linear-gradient(0deg, rgba(0,0,0,.9), transparent); padding:30px 8px 8px; text-align:center; min-height:64px;}
+.vn-pick .nm{color:#fff; font-weight:800; font-size:1rem;}
+.vn-pick .cl{color:#D6DAC5; font-family:var(--mono); font-size:0.82rem; margin-top:3px;}
+.vn-pick .preview{color:#F4F1E2; font-family:var(--mono); font-size:0.78rem; line-height:1.4; margin-top:3px;}
+.vn-pick .badge{position:absolute; top:6px; right:6px; font-family:var(--mono); font-size:0.72rem; font-weight:700; padding:3px 7px; z-index:2;}
+.vn-pick.is-a{border-color:var(--gold); box-shadow:0 0 0 3px rgba(176,141,43,.4);}
+.vn-pick.is-a .badge{background:var(--gold); color:var(--navy);}
+.vn-pick.is-b{border-color:var(--accent); box-shadow:0 0 0 3px rgba(161,48,28,.4);}
+.vn-pick.is-b .badge{background:var(--accent); color:#fff;}
+
+/* 무대 - 배경 + 인물 */
+.vn-stage{position:relative; border:3px solid var(--navy); min-height:380px; overflow:hidden; display:flex; align-items:flex-end; justify-content:center;
+  background:linear-gradient(180deg,#3A4530 0%, #232A1B 55%, #171C11 100%);}
+.vn-bg-layer{position:absolute; inset:0; background-size:cover; background-position:center; opacity:0.55;}
+.vn-bg-layer .fallback-bg{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#5b6650; font-family:var(--mono); font-size:0.8rem;}
+.vn-bg-shade{position:absolute; inset:0; background:linear-gradient(180deg, rgba(20,24,15,.1) 0%, rgba(15,18,10,.7) 78%, rgba(10,12,7,.9) 100%);}
+.vn-portrait{position:absolute; bottom:0; height:94%; width:42%; display:flex; align-items:flex-end; justify-content:center; transition:opacity .3s ease, filter .3s ease, transform .3s ease;}
+.vn-portrait img{max-width:100%; max-height:100%; object-fit:contain; filter:drop-shadow(0 10px 16px rgba(0,0,0,.5));}
+.vn-portrait .fallback{color:#EFE9D2; font-family:var(--mono); text-align:center; padding:0 10px; font-size:1.3rem; align-self:center;}
+.vn-portrait.left{left:1%;}
+.vn-portrait.right{right:1%;}
+.vn-portrait.dim{opacity:.38; filter:grayscale(75%) brightness(.55); transform:scale(.96);}
+.vn-portrait.active{opacity:1; transform:scale(1.02);}
+.vn-situation-banner{position:relative; z-index:5; background:var(--navy); border:3px solid var(--navy); border-bottom:none; padding:14px 20px;}
+.vn-situation-banner .label{font-family:var(--mono); font-size:0.75rem; color:var(--gold); letter-spacing:0.12em; display:block; margin-bottom:6px;}
+.vn-situation-banner .sit{font-family:var(--display); font-weight:900; font-size:clamp(1.2rem,2.8vw,1.55rem); color:#fff; line-height:1.4;}
+.vn-progress{position:absolute; top:10px; right:14px; font-family:var(--mono); font-size:0.8rem; color:#CBD1BC; z-index:4; background:rgba(0,0,0,.5); padding:3px 9px;}
+.vn-close{position:absolute; top:8px; left:12px; z-index:4; font-family:var(--mono); font-size:0.8rem; color:#EFE9D2; background:rgba(0,0,0,.5); border:none; padding:4px 10px; cursor:pointer;}
+.vn-close:hover{background:var(--accent);}
+
+/* 대사창 - 클릭하면 다음 줄 */
+.vn-textbox{position:relative; z-index:5; margin-top:-46px; background:rgba(23,28,17,.94); backdrop-filter:blur(2px); border:3px solid var(--navy); padding:22px 22px 20px; cursor:pointer; min-height:110px; color:#F1EEDD;}
+.vn-speaker{position:absolute; top:-19px; left:18px; background:var(--accent); color:#fff; font-weight:800; padding:6px 18px; font-size:1rem; clip-path:polygon(6% 0,100% 0,94% 100%,0% 100%);}
+.vn-jp{font-size:1.18rem; font-weight:700; margin:6px 0 8px; line-height:1.5;}
+.vn-kr{font-size:1rem; color:#C7CDB6;}
+.vn-note{font-style:italic; color:#B9BFA8; font-size:1.05rem; padding-top:4px;}
+.vn-next{position:absolute; bottom:10px; right:18px; font-family:var(--mono); font-size:1rem; color:var(--gold); animation:vnbounce 1.1s infinite;}
+@keyframes vnbounce{0%,100%{transform:translateY(0);} 50%{transform:translateY(4px);}}
+
+/* 씬 종료 - 전체 대사 다시보기 */
+.vn-end{background:var(--card); border:3px solid var(--navy); border-top:none; padding:0;}
+.vn-end-head{background:var(--navy); color:var(--gold); font-family:var(--display); font-weight:900; font-size:1.05rem; text-align:center; padding:14px;}
+.vn-fulllog-head{font-family:var(--mono); font-size:0.85rem; color:var(--olive); font-weight:700; letter-spacing:0.06em; padding:16px 20px 0;}
+.vn-log{background:#fff; border-left:4px solid var(--accent); margin:12px 20px 20px; padding:18px 20px;}
+.vn-log-line{margin-bottom:13px;}
+.vn-log-line:last-child{margin-bottom:0;}
+.vn-log-line .who{font-weight:800; color:var(--navy); margin-right:6px; font-size:1rem;}
+.vn-log-line .jp{font-size:1.05rem; font-weight:600; margin-top:2px;}
+.vn-log-line .kr{font-size:0.96rem; color:#5b5f4a; margin-top:2px;}
+.vn-log-note{font-style:italic; color:#6b7058; margin-bottom:13px; font-size:1rem;}
+
+.vn-controls{display:flex; justify-content:space-between; gap:10px; padding:0 20px 20px; flex-wrap:wrap;}
+.vn-btn{font-family:var(--mono); font-weight:700; font-size:0.92rem; background:var(--navy); color:var(--gold); border:none; padding:11px 18px; cursor:pointer;}
+.vn-btn:hover{background:var(--accent); color:#fff;}
+.vn-btn.ghost{background:transparent; color:var(--olive); border:1px solid var(--line);}
+
+@media (max-width:820px){
+  .school-grid{grid-template-columns:1fr;}
+  .roster-strip{grid-template-columns:repeat(3,1fr);}
+  .gallery-grid{grid-template-columns:repeat(3, minmax(140px,1fr));}
+  .vn-hub-grid{grid-template-columns:repeat(3,1fr);}
+  .vn-stage{min-height:340px;}
+  .journal{flex-direction:column;}
+  .journal-tabs{flex-direction:row; flex-wrap:wrap; padding-top:0; padding-bottom:10px; gap:6px;}
+  .journal-tab{width:auto; padding:9px 12px; transform:rotate(0deg);}
+  .journal-tab:nth-child(even){transform:rotate(0deg);}
+  .journal-tab.active{transform:rotate(0deg) translateY(-3px);}
+  .journal-page{padding:22px 18px 20px 30px;}
+}
+@media (max-width:480px){
+  body{font-size:17px;}
+  .roster-strip{grid-template-columns:repeat(2,1fr);}
+  .gallery-grid{grid-template-columns:1fr;}
+  .vn-hub-grid{grid-template-columns:repeat(2,1fr);}
+  .prof-shelf{flex-direction:column;}
+  .prof-tabs{flex-direction:row; flex-wrap:wrap; padding-top:0; padding-bottom:10px; gap:6px; order:-1;}
+  .prof-tab{width:auto; padding:9px 12px;}
+  .prof-tab.active{transform:rotate(0deg) translateY(-4px) scale(1.05);}
+  .char-card{margin-left:0; padding:24px 20px 22px;}
+  .char-idbox{flex-direction:column; align-items:center; text-align:center;}
+  .char-photo{width:180px; height:230px;}
+  .vn-stage{min-height:420px;}
+  .vn-portrait{width:52%;}
+  .journal{flex-direction:column;}
+  .journal-tabs{flex-direction:row; flex-wrap:wrap; padding-top:0; padding-bottom:10px; gap:6px;}
+  .journal-tab{width:auto; padding:8px 12px; transform:rotate(0deg);}
+  .journal-tab.active{transform:rotate(0deg) translateY(-3px);}
+  .journal-page{padding:20px 14px 18px 22px;}
+  .journal-page::before{left:6px;}
+  .journal-nav{flex-direction:column; gap:10px;}
+  .journal-nav-btn{width:100%; text-align:center;}
+  .mobile-menu-btn{display:inline-flex;}
+  .tabs{display:none;}
+  .next-tab-btn{display:flex;}
+}
+</style>
+</head>
+<body>
+
+<audio id="bgm" loop preload="auto">
+  <source src="https://raw.githubusercontent.com/snowbls/j/main/%ED%95%9C%EC%97%AC%EB%A6%84%EC%9D%98%ED%8E%98%EC%9D%B4%EC%A7%80.mp3" type="audio/mpeg">
+</audio>
+
+<div class="bgm-widget" id="bgmWidget">
+  <button class="bgm-fab" id="bgmFab" aria-label="음악 패널 열기">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="1.6"/></svg>
+  </button>
+  <div class="bgm-panel" id="bgmPanel">
+    <button class="bgm-playbtn" id="bgmPlayBtn" aria-label="재생">
+      <svg id="bgmIconPlay" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="bgmIconPause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+    </button>
+    <input type="range" id="bgmVol" min="0" max="100" value="55" class="bgm-vol">
+  </div>
+</div>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">세이란학원<span>星蘭学院 · PERSONNEL FILE</span></div>
+    <div class="tabs" id="tabs">
+      <button class="tab-btn active" data-tab="profile">소개</button>
+      <button class="tab-btn" data-tab="characters">등장인물</button>
+      <button class="tab-btn" data-tab="relations">관계도</button>
+      <button class="tab-btn" data-tab="school">학교</button>
+      <button class="tab-btn" data-tab="gallery">갤러리</button>
+      <button class="tab-btn" data-tab="log">로그</button>
+    </div>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" type="button">☰ 메뉴</button>
+  </div>
+</div>
+
+<div class="mobile-menu-panel" id="mobileMenuPanel">
+  <button class="mobile-menu-close" id="mobileMenuClose" type="button" aria-label="메뉴 닫기">✕</button>
+  <button class="tab-btn mobile-menu-item active" data-tab="profile">소개</button>
+  <button class="tab-btn mobile-menu-item" data-tab="characters">등장인물</button>
+  <button class="tab-btn mobile-menu-item" data-tab="relations">관계도</button>
+  <button class="tab-btn mobile-menu-item" data-tab="school">학교</button>
+  <button class="tab-btn mobile-menu-item" data-tab="gallery">갤러리</button>
+  <button class="tab-btn mobile-menu-item" data-tab="log">로그</button>
+</div>
+
+<button class="next-tab-btn" id="nextTabBtn" type="button">다음 탭 ▸</button>
+
+<main>
+
+  <!-- 프로필 -->
+  <section class="tab-panel active" id="profile">
+    <div class="hero">
+      <div class="hero-topline">
+        <span class="stamp-tag">TOP SECRET · 학생과 보관용</span>
+        <span class="file-id">FILE Nº 星蘭学院-1952-A</span>
+      </div>
+      <h1>67년 만의<br>남학생</h1>
+      <p class="sub">전원 각자 동아리 특기생, 여고 67년 역사에 떨어진 <b>단 한 명</b>.</p>
+      <div class="notice-box">
+        <span class="corner-stamp">규정 위반 주의</span>
+        <span class="tag">교내 안내문 · 학생과</span>
+        정식 남자 기숙사동은 없습니다. 화장실도 여성용뿐입니다.<br>
+        (안내문은 붙어 있으나 다들 깜빡합니다.)<br><br>
+        그래도 학교는 태연합니다. 67년 만의 소란이, 지금 시작됩니다.
+      </div>
+      <div class="stat-bar">
+        <div class="stat"><div class="num">10</div><div class="label">등장인물</div></div>
+        <div class="stat"><div class="num">1952</div><div class="label">설립년도</div></div>
+        <div class="stat"><div class="num">2019</div><div class="label">현재 시점</div></div>
+        <div class="stat"><div class="num">센다이</div><div class="label">아오바구</div></div>
+      </div>
+    </div>
+    <div class="ensemble">
+      <h2>동아리 열 갈래, 저마다 다른 얼굴</h2>
+      <p>1952년, 여성 교육가가 세운 이 학교엔 아침마다 짧은 다짐을 외치는 전통이 아직 남아 있다. 그 단정한 틈새로 부활동 끝나고 카페까지 몰려가는 발소리, 시답잖은 농담과 웃음소리가 늘 새어 나온다. 67년째 여학생만 다니던 이 학교에 올해 처음 남학생 한 명이 전학 온다. 교실 문이 열릴 때마다 옆자리를 쿡 찌르는 소리, 우르르 몰려갔다 흩어지는 발소리로 한동안 조용할 날이 없을 것이다.</p>
+      <div class="roster-strip" id="roster-strip"></div>
+    </div>
+  </section>
+
+  <!-- 등장인물 -->
+  <section class="tab-panel" id="characters">
+    <div class="section-head">
+      <h2>등장인물 신상기록</h2>
+      <p>오른쪽 인덱스 탭을 눌러 학생을 선택하세요.</p>
+    </div>
+    <div class="prof-shelf" id="char-grid"></div>
+  </section>
+
+  <!-- 관계 씬 -->
+  <section class="tab-panel" id="relations">
+    <div class="section-head">
+      <h2>관계도</h2>
+      <p>인물 두 명을 고르면 상황과 무대가 뜨고, 그 아래에 대사 전체가 한번에 펼쳐집니다.</p>
+    </div>
+    <div class="vn-wrap" id="vn-wrap"></div>
+  </section>
+
+  <!-- 학교 -->
+  <section class="tab-panel" id="school">
+    <div class="section-head">
+      <h2>세이란학원</h2>
+      <p>1952년 여성 교육가 설립, 올해 통폐합으로 공학 전환한 사립 명문고 · 센다이시 아오바구</p>
+    </div>
+    <div class="school-wrap">
+    <div class="school-grid">
+      <div class="school-block map-block">
+        <span class="corner-tag">MAP</span>
+        <h3>캠퍼스 지도</h3>
+        <p class="map-hint">지도 위 붉은 점을 눌러보세요</p>
+        <div class="campus-map-wrap">
+          <img src="https://raw.githubusercontent.com/snowbls/kk/main/map.png" alt="세이란학원 캠퍼스 지도" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+          <div class="log-empty" style="display:none">지도 이미지를 불러오지 못했습니다. 파일 경로(raw.githubusercontent.com/snowbls/kk/main/map.png)를 확인해주세요.</div>
+          <div class="hotspot-layer" id="hotspot-layer"></div>
+        </div>
+      </div>
+      <div class="school-block">
+        <span class="corner-tag">TIME TABLE</span>
+        <h3>일과표</h3>
+        <ul class="timeline" id="timeline-list">
+          <li data-period="0700"><span class="time">07:00</span> 기상</li>
+          <li data-period="0730"><span class="time">07:30</span> 조식</li>
+          <li data-period="class"><span class="time">08:30–15:30</span> 수업</li>
+          <li data-period="club"><span class="time">15:40–18:00</span> 부활동(자율)</li>
+          <li data-period="1800"><span class="time">18:00</span> 석식</li>
+          <li data-period="study"><span class="time">19:00–21:00</span> 자습</li>
+          <li data-period="2200"><span class="time">22:00</span> 소등</li>
+        </ul>
+        <div class="tt-info" id="tt-info"><span class="hint">시간대를 누르면 그때 다들 뭘 하고 있는지 보여줍니다</span></div>
+        <div class="chant-block">
+          <div class="motto">今日も正しく</div>
+          <div class="motto-sub">오늘도 바르게 · 학년대표 선창<br>→ 전체 복창 "함께 빛나자"</div>
+        </div>
+      </div>
+      <div class="school-block">
+        <span class="corner-tag">1952–2019</span>
+        <h3>시대 배경</h3>
+        <ul class="building-list">
+          <li><b>2019년</b> — 등장인물 전원 2001년생, 18세, 2학년 1반</li>
+          <li>작년까지 순수 여학교였다가 올해 통폐합 정책으로 유저 전입, 첫 공학</li>
+          <li>단정한 몸가짐·예절을 중시하는 교풍은 여전하지만, 학생들 일상은 여전히 왁자지껄한 청춘물에 가까움</li>
+        </ul>
+        <h3 style="margin-top:18px;">연간 행사</h3>
+        <ul class="event-list">
+          <li><span class="month">4월</span> 입학식</li>
+          <li><span class="month">6월</span> 체육대회</li>
+          <li><span class="month">9월</span> 합창제</li>
+          <li><span class="month">11월</span> 문화제</li>
+          <li><span class="month">3월</span> 졸업식</li>
+        </ul>
+      </div>
+      <div class="school-flavor">
+        <span class="corner-stamp">필독</span>
+        <span class="tag">교내 게시판 · 학생과</span>
+        <h3>교칙</h3>
+        <ul>
+          <li>전체 기숙사제, 07:00 기상부터 22:00 소등까지 하루 일과가 짜여 있음</li>
+          <li>교복은 등하교 때 항상 단정하게</li>
+          <li>외출은 방과 후 학교 앞 카페까지만 자유, 그 외는 허가제</li>
+          <li>식당은 자유 좌석, 별명으로 부르는 게 자연스러운 문화, 소소한 소문이 잘 도는 분위기</li>
+          <li>부활동은 자율 가입</li>
+        </ul>
+      </div>
+      <div class="memo-note">
+        <span class="corner-tag">MEMO</span>
+        <span class="tag">✎ 학생과 메모</span>
+        <ul>
+          <li>정식 남자 기숙사동이 없어 3층 여학생 층 한 칸에 유저 방을 배정. 화장실도 여자용뿐, 안내문은 붙어 있지만 다들 깜빡함</li>
+          <li>체육 끝나고 교실에서 옷을 갈아입는 습관이 남아있어, 유저 앞에서 무심코 그러다 뒤늦게 놀라는 상황이 생기곤 함</li>
+          <li>67년간 여학교였던 터라 남자를 접할 기회가 없던 학생들, 유저 등장 시 집단 반응이 꽤 요란한 편</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- 갤러리 -->
+  <section class="tab-panel" id="gallery">
+    <div class="section-head">
+      <h2>갤러리</h2>
+      <p>이미지를 누르면 확대됩니다. 각 캐릭터의 마지막 이미지들은 플레이시 출력되지 않습니다.</p>
+    </div>
+    <div class="gallery-hero" id="galleryHero">
+      <img src="https://raw.githubusercontent.com/snowbls/kk/main/긴버전.webp" alt="갤러리 무빙 컷" class="gallery-hero-media" id="galleryHeroImg">
+      <div id="galleryHeroFallback" class="log-empty" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center; color:#B7BFA9;">무빙 컷 이미지를 불러오지 못했습니다. (긴버전.webp 경로 확인)</div>
+    </div>
+    <div id="bcut-gallery"></div>
+  </section>
+
+  <!-- 로그 -->
+  <section class="tab-panel" id="log">
+    <div class="section-head">
+      <h2>관찰일지</h2>
+      <p>플레이 기록에서 발췌한 장면들. 왼쪽 색인표를 눌러 종류를 고르고, 아래 버튼으로 장면을 넘겨보세요.</p>
+    </div>
+    <div class="journal" id="journal">
+      <div class="journal-tabs" id="journal-tabs"></div>
+      <div class="journal-page">
+        <div class="journal-page-head">
+          <span class="journal-cat-title" id="journal-cat-title"></span>
+          <span class="journal-page-count" id="journal-page-count"></span>
+        </div>
+        <div class="journal-page-body" id="journal-page-body"></div>
+        <div class="journal-nav">
+          <button class="journal-nav-btn" id="journal-prev" type="button">◂ 이전 장면</button>
+          <button class="journal-nav-btn" id="journal-next" type="button">다음 장면 ▸</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>세이란학원 신상기록부 · 星蘭学院 PERSONNEL FILE</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()"><img id="lightbox-img" src="" alt=""></div>
+
+<script>
+(function(){
+  var bgm = document.getElementById('bgm');
+  var fab = document.getElementById('bgmFab');
+  var panel = document.getElementById('bgmPanel');
+  var playBtn = document.getElementById('bgmPlayBtn');
+  var iconPlay = document.getElementById('bgmIconPlay');
+  var iconPause = document.getElementById('bgmIconPause');
+  var vol = document.getElementById('bgmVol');
+  bgm.volume = vol.value / 100;
+
+  function markPlaying(){
+    iconPlay.style.display='none';
+    iconPause.style.display='';
+    fab.classList.add('playing');
+  }
+  function markPaused(){
+    iconPlay.style.display='';
+    iconPause.style.display='none';
+    fab.classList.remove('playing');
+  }
+
+  function tryAutoplay(){
+    var p = bgm.play();
+    if(p !== undefined){
+      p.then(markPlaying).catch(function(){
+        var startOnInteract = function(){
+          bgm.play().then(markPlaying).catch(function(){});
+          document.removeEventListener('click', startOnInteract);
+          document.removeEventListener('touchstart', startOnInteract);
+          document.removeEventListener('keydown', startOnInteract);
+        };
+        document.addEventListener('click', startOnInteract, {once:true});
+        document.addEventListener('touchstart', startOnInteract, {once:true});
+        document.addEventListener('keydown', startOnInteract, {once:true});
+      });
+    }
+  }
+  tryAutoplay();
+
+  fab.addEventListener('click', function(){
+    panel.classList.toggle('open');
+  });
+  document.addEventListener('click', function(e){
+    if(!document.getElementById('bgmWidget').contains(e.target)){
+      panel.classList.remove('open');
+    }
+  });
+  playBtn.addEventListener('click', function(){
+    if(bgm.paused){
+      bgm.play();
+      markPlaying();
+    }else{
+      bgm.pause();
+      markPaused();
+    }
+  });
+  vol.addEventListener('input', function(){
+    bgm.volume = vol.value / 100;
+  });
+})();
+</script>
+<script>
+// ===== 탭 전환 =====
+const tabOrder = ['profile','characters','relations','school','gallery','log'];
+function goToTab(name){
+  document.querySelectorAll('.tab-btn').forEach(b=>{
+    b.classList.toggle('active', b.dataset.tab === name);
+  });
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  const panelEl = document.getElementById(name);
+  if(panelEl) panelEl.classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+  if(name === 'gallery'){
+    const heroImg = document.getElementById('galleryHeroImg');
+    if(heroImg && typeof fitGalleryHero === 'function'){
+      requestAnimationFrame(()=>{
+        if(heroImg.complete && heroImg.naturalWidth) fitGalleryHero(heroImg);
+      });
+    }
+  }
+  const menuPanel = document.getElementById('mobileMenuPanel');
+  if(menuPanel) menuPanel.classList.remove('open');
+}
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{ goToTab(btn.dataset.tab); });
+});
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+const mobileMenuClose = document.getElementById('mobileMenuClose');
+if(mobileMenuBtn){
+  mobileMenuBtn.addEventListener('click', ()=>{ mobileMenuPanel.classList.add('open'); });
+}
+if(mobileMenuClose){
+  mobileMenuClose.addEventListener('click', ()=>{ mobileMenuPanel.classList.remove('open'); });
+}
+const nextTabBtn = document.getElementById('nextTabBtn');
+if(nextTabBtn){
+  nextTabBtn.addEventListener('click', ()=>{
+    const activePanel = document.querySelector('.tab-panel.active');
+    const current = activePanel ? activePanel.id : 'profile';
+    let idx = tabOrder.indexOf(current);
+    idx = (idx + 1) % tabOrder.length;
+    goToTab(tabOrder[idx]);
+  });
+}
+function openLightbox(src, evt){ if(evt) evt.stopPropagation(); document.getElementById('lightbox-img').src=src; document.getElementById('lightbox').classList.add('active'); }
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('active'); }
+
+// ===== 캐릭터 데이터 =====
+const characters = [
+  {code:'k', name:'사기사와 아카네', short:'아카네', rank:'검도부 주장', club:'검도부', birth:'1월 19일', height:'168cm', color:'#3B2E33',
+   quote:'"제대로 해." — 그 말, 자기 자신한테 제일 엄격하게 적용 중.',
+   bullets:['교복 흐트러짐 없음, 화나면 오히려 더 격식 차림','자기 실수는 티 안 내고 혼자 수습','공부하는 모습 본 사람 없는데 성적은 항상 상위권','밤에 혼자 도장에서 연습하다 들킨 적 있음'],
+   like:'이른 아침, 정돈된 것', dislike:'예고 없는 변수, 거짓말'},
+  {code:'s', name:'쿠즈노 리오', short:'리오', rank:'방송부', club:'방송부', birth:'3월 5일', height:'162cm', color:'#7B4A5C',
+   quote:'날카로운 말투, 근데 행동은 은근 다정한 타입.',
+   bullets:['한발 먼저 상황 그려보고 대비, 예측 틀리면 인정 안 하고 화제 전환','우산 슬쩍 놔두고 가거나 메모 남기는 식으로 챙기고 모른 척','과거 판단 실수로 누군가 다친 경험 있어 위험 요소에 예민','팔짱 끼는 버릇, 당황하면 말이 빨라짐'],
+   like:'예측 가능한 일상, 혼자 시간', dislike:'변수 많은 상황, 자기 실수 인정하기'},
+  {code:'g', name:'하야시 히나', short:'히나', rank:'치어리딩부', club:'치어리딩부', birth:'7월 22일', height:'165cm', color:'#8B4050',
+   quote:'목소리부터 큰 치어리딩부. 감정이 몸으로 먼저 나가는 타입.',
+   bullets:['놀라면 큰 소리, 기쁘면 호탕한 웃음, 화나면 표정 굳음','작은 동물 앞에서만 여린 본성 새어나옴, 들키면 더 크게 부정','챙기고 싶은 마음은 큰데 방법을 몰라서 목소리만 커짐','웃을 때 "はは!"(하하!) 하고 시원하게 웃음'],
+   like:'작은 동물, 요리, 먹는 것', dislike:'복잡한 설명이 필요한 상황'},
+  {code:'i', name:'시라세 이츠키', short:'이츠키', rank:'사진부', club:'사진부', birth:'11월 8일', height:'170cm', color:'#6E7484',
+   quote:'말수 적고 표정 변화 거의 없음, 필요한 말만 짧게.',
+   bullets:['먼저 다가가는 일은 거의 없지만 상대가 오면 자리는 지킴','카메라 잡을 때만 집중력과 존재감이 확 달라짐','다정한 말 툭 던지고 바로 무관심한 척, 본인은 그런 적 없다고 우김','헤어케어 용품 얘기만 나오면 은근히 말이 길어짐'],
+   like:'조용한 공간, 헤어케어 용품 구경', dislike:'과도한 관심, 강요된 사교'},
+  {code:'c', name:'아오이 유이', short:'유이', rank:'경음악부 보컬', club:'경음악부', birth:'5월 30일', height:'166cm', color:'#C97A2E',
+   quote:'텐션 높고 유행어 섞어 쓰는 분위기 메이커.',
+   bullets:['남동생 있어서 남자 대하는 게 자연스러움, 분위기 싸해지면 자동으로 풀어줌','장난·텐션으로 상황 주도하지만 사실 제일 눈치 빠른 쪽','진지한 얘기는 장난으로 덮는 버릇, 속마음은 가까운 사람도 잘 모름','히나랑 붙으면 무조건 소란, 세이란학원 공인 민폐 듀오'],
+   like:'사람 많은 곳, 장난', dislike:'무거운 분위기'},
+  {code:'z', name:'타테이시 미유', short:'미유', rank:'요리부', club:'요리부', birth:'9월 14일', height:'160cm', color:'#B98A5A',
+   quote:'책임감이 몸에 배어 있어 부탁 전에 먼저 움직이는 타입.',
+   bullets:['실수 보면 자동으로 수습, "괜찮아"가 입버릇','힘든 거 절대 티 안 냄, 도움 요청하는 법을 모름','서랍에 단것 숨겨둠, 들킨 적 있어 다들 놀랐던 전적 있음','항상 제일 마지막에 자고 제일 먼저 일어남'],
+   like:'단것(숨겨둠)', dislike:'자기 때문에 남이 힘든 상황'},
+  {code:'d', name:'에노키 히이라기', short:'히이라기', rank:'댄스부', club:'댄스부', birth:'2월 27일', height:'152cm', color:'#E0729A',
+   quote:'리액션 크고 존댓말 쓰는 막내 포지션.',
+   bullets:['인정받고 싶어 적극적으로 다가가고 작은 칭찬에도 과하게 기뻐함','긴장하면 말 더듬음, 압박감 느끼면 실력도 같이 굳음','체격 작아서 자꾸 동생 취급받는 게 콤플렉스','이름 때문에 자주 헷갈리는 상황 발생'],
+   like:'칭찬', dislike:'갈등, 미움받기'},
+  {code:'h', name:'카자마 미즈호', short:'미즈호', rank:'수영부 자유형', club:'수영부', birth:'12월 3일', height:'165cm', color:'#2E6F8B',
+   quote:'단답형에 무던한 평소 태도, 갈등 생기면 자리부터 피함.',
+   bullets:['평소엔 "...別に"(…별로) "...まあ"(…뭐) 정도로 반응 끝','수영할 때만 표정 살아나고 물 밖에서는 다시 무던해짐','중요한 순간엔 의외로 먼저 움직이고 "그냥 어쩌다"로 둘러댐','밥 먹다 자기 반찬 슬쩍 옆으로 밀어주고 딴청 피움'],
+   like:'수영, 조용한 시간', dislike:'갈등, 주목받기'},
+  {code:'t', name:'아야세 츠바사', short:'츠바사', rank:'수예부', club:'수예부', birth:'4월 2일', height:'163cm', color:'#C9A94F',
+   quote:'온화한 말투, 화내는 모습 거의 본 적 없는 타입.',
+   bullets:['남동생 둘 있어서 남자 대하는 게 자연스러움','불편한 분위기 보이면 자동으로 정리','손재주 좋아 챙기는 행동이 자연스럽게 나옴, 남동생 생각나면 더 챙기게 됨','수예할 때만 눈빛 달라짐, 밤에 남동생과 통화하는 소리 종종 들림'],
+   like:'손으로 만들기, 남동생과 통화', dislike:'불편한 분위기 방치'},
+  {code:'j', name:'호즈미 린', short:'린', rank:'체조부', club:'체조부', birth:'6월 19일', height:'155cm', color:'#2E8B72',
+   quote:'친구들 사이에선 활발한데 한 사람 근처에서만 얼어붙는 타입.',
+   bullets:['전날 밤 할 말 연습해도 실전에선 다 날아감','매너 있게 하고 싶은데 실행이 한 박자 늦거나 어설픔','매너 성공하면 본인이 더 놀라서 당황, 친구들이 놓치지 않고 놀림','친구들한텐 입 잘 살고 운동 잘하는데 남자만 보면 로봇 됨'],
+   like:'체조, 친구들과 장난', dislike:'긴장되는 상황(특히 남자 앞)'}
+];
+const charByShort = name => characters.find(c=>c.short===name);
+function lighten(hex, amt){
+  hex = hex.replace('#','');
+  const r = parseInt(hex.substring(0,2),16), g = parseInt(hex.substring(2,4),16), b = parseInt(hex.substring(4,6),16);
+  const nr = Math.round(r + (255-r)*amt);
+  const ng = Math.round(g + (255-g)*amt);
+  const nb = Math.round(b + (255-b)*amt);
+  return `rgb(${nr},${ng},${nb})`;
+}
+// 특정 캐릭터 사진이 프레임에서 얼굴이 잘릴 때 위치 보정 (짧은 이름 키)
+const charFacePos = {
+  '미즈호': '80% center'
+};
+function photoHTML(ch){
+  const src = `https://raw.githubusercontent.com/snowbls/kk/main/${ch.code}1.png`;
+  const posOverride = charFacePos[ch.short];
+  const imgStyle = posOverride ? ` style="object-position:${posOverride}"` : '';
+  return `<img src="${src}"${imgStyle} onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"><div class="fallback" style="display:none">${ch.short}</div>`;
+}
+function photoSrc(ch){ return `https://raw.githubusercontent.com/snowbls/kk/main/${ch.code}1.png`; }
+
+// ===== 프로필 로스터 =====
+const rosterWrap = document.getElementById('roster-strip');
+characters.forEach((ch,idx)=>{
+  const chip = document.createElement('div');
+  chip.className = 'roster-chip';
+  chip.innerHTML = `
+    <div class="roster-thumb" style="--chip-color:${ch.color}" onclick="openLightbox('${photoSrc(ch)}', event)">${photoHTML(ch)}</div>
+    <div class="meta"><div class="name">${ch.short}</div><div class="club">No.${String(idx+1).padStart(2,'0')} · ${ch.club}</div></div>`;
+  rosterWrap.appendChild(chip);
+});
+
+// ===== 등장인물 신상기록 (인덱스 탭 + A4 서류 한 장) =====
+const charGrid = document.getElementById('char-grid');
+let profSubject = characters[0].short;
+
+function profRender(){
+  const ch = charByShort(profSubject);
+  const idx = characters.findIndex(c=>c.short===profSubject);
+
+  let tabsHTML = '';
+  characters.forEach(c=>{
+    const active = c.short === profSubject;
+    tabsHTML += `<div class="prof-tab ${active?'active':''}" style="background:${lighten(c.color,0.62)}" onclick="profSelect('${c.short}')">${c.short}</div>`;
+  });
+
+  charGrid.innerHTML = `
+    <div class="char-card" style="--chip-color:${ch.color}">
+      <div class="card-stamp">세이란학원<br>학생과<br>직인</div>
+      <div class="char-head">
+        <div class="doc-title">학생생활기록부</div>
+        <div class="doc-sub">FILE No.${String(idx+1).padStart(2,'0')} · 세이란학원</div>
+      </div>
+      <div class="section-num">I. 인적사항</div>
+      <div class="char-idbox">
+        <div class="char-photo" onclick="openLightbox('${photoSrc(ch)}', event)">${photoHTML(ch)}</div>
+        <table class="char-fields">
+          <tr class="nm"><td class="k">성명</td><td class="v">${ch.name}</td></tr>
+          <tr><td class="k">학년반</td><td class="v">2학년 1반</td></tr>
+          <tr><td class="k">소속부</td><td class="v">${ch.rank}</td></tr>
+          <tr><td class="k">생일</td><td class="v">${ch.birth}</td></tr>
+          <tr><td class="k">신장</td><td class="v">${ch.height}</td></tr>
+        </table>
+      </div>
+      <div class="section-num">II. 행동특성 및 종합의견</div>
+      <div class="char-remarks">
+        <div class="char-quote">${ch.quote}</div>
+        <div class="remarks-label">특이사항</div>
+        <ul>${ch.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+        <div class="likes">
+          <span class="like-box"><b>선호</b>${ch.like}</span>
+          <span class="like-box"><b>기피</b>${ch.dislike}</span>
+        </div>
+      </div>
+    </div>
+    <div class="prof-tabs">${tabsHTML}</div>`;
+}
+function profSelect(short){ profSubject = short; profRender(); }
+profRender();
+
+function fitGalleryHero(img){
+  const container = document.getElementById('galleryHero');
+  if(!container) return;
+  const cw = container.clientWidth;
+  const w = img.naturalWidth || 1080, h = img.naturalHeight || 1620;
+  const scale = cw / h;
+  const visualHeight = Math.round(w * scale);
+  container.style.height = visualHeight + 'px';
+  img.style.width = Math.round(w*scale) + 'px';
+  img.style.height = Math.round(h*scale) + 'px';
+}
+(function(){
+  const heroImg = document.getElementById('galleryHeroImg');
+  const heroFallback = document.getElementById('galleryHeroFallback');
+  if(!heroImg) return;
+  function onHeroError(){
+    heroImg.style.display = 'none';
+    if(heroFallback) heroFallback.style.display = 'flex';
+  }
+  heroImg.addEventListener('load', ()=>fitGalleryHero(heroImg));
+  heroImg.addEventListener('error', onHeroError);
+  if(heroImg.complete){
+    if(heroImg.naturalWidth) fitGalleryHero(heroImg);
+    else onHeroError();
+  }
+})();
+window.addEventListener('resize', ()=>{
+  const img = document.getElementById('galleryHeroImg');
+  if(img && img.complete && img.naturalWidth) fitGalleryHero(img);
+});
+
+// ===== B컷 갤러리 (사진첩 스타일) =====
+// 앞 3장은 메인 프롬프트 이미지 코드표 그대로: 미소기쁨(5) / 평소사복차림(20) / 옷갈아입다당황(14)
+// 마지막 1장은 캐릭터별 수동 지정 사진: 가.png, 나.png... 순서로 한 명당 하나씩
+const bcutStates = [
+  ['10','부활동복장Ⓤ대화'],
+  ['20','평소사복차림'],
+  ['14','옷갈아입다당황']
+];
+const manualLetters = ['가','나','다','라','마','바','사','아','자','차'];
+const bcutWrap = document.getElementById('bcut-gallery');
+// 특정 코드에 대한 얼굴 위치 보정이 필요하면 '코드' 키로 여기에 추가 (예: 'k5':'80% 15%')
+const galleryFacePos = {
+  'c20': '90% center'
+};
+characters.forEach((ch,idx)=>{
+  const block = document.createElement('div');
+  block.className = 'bcut-block';
+  const head = document.createElement('div');
+  head.className = 'bcut-head';
+  head.innerHTML = `<span class="bcut-swatch" style="background:${ch.color}"></span><span class="bcut-name">${ch.short}</span><span class="bcut-club">${ch.club}</span>`;
+  block.appendChild(head);
+  const grid = document.createElement('div');
+  grid.className = 'gallery-grid';
+  bcutStates.forEach(([num,label])=>{
+    const box = document.createElement('div');
+    box.className = 'gallery-box';
+    const fileCode = `${ch.code}${num}`;
+    const src = `https://raw.githubusercontent.com/snowbls/kk/main/${fileCode}.png`;
+    const posOverride = galleryFacePos[fileCode];
+    const imgStyle = posOverride ? ` style="object-position:${posOverride}"` : '';
+    box.innerHTML = `<div class="photo-inner"><img src="${src}"${imgStyle} onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"><div class="fallback" style="display:none">${ch.short}<br>${label}</div></div>`;
+    box.onclick = ()=>openLightbox(src);
+    grid.appendChild(box);
+  });
+  // 마지막 한 장: 수동 지정 사진
+  const manualLetter = manualLetters[idx] || `가${idx}`;
+  const manualBox = document.createElement('div');
+  manualBox.className = 'gallery-box';
+  const manualSrc = `https://raw.githubusercontent.com/snowbls/kk/main/${manualLetter}.png`;
+  manualBox.innerHTML = `<div class="photo-inner"><img src="${manualSrc}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"><div class="fallback" style="display:none">${ch.short}<br>${manualLetter}.png</div></div>`;
+  manualBox.onclick = ()=>openLightbox(manualSrc);
+  grid.appendChild(manualBox);
+  block.appendChild(grid);
+  bcutWrap.appendChild(block);
+});
+
+
+
+// ===================================================================
+// 관계 씬 대사 데이터 (90개, from → to)
+// ===================================================================
+const SCEN = {
+"아카네":{
+ "리오":{sit:"조회 시간, 리오가 또 지각 직전에 뛰어들어옴", L:[
+   ["아카네","葛野さん、また一分前じゃない。","쿠즈노, 또 1분 전이잖아."],
+   ["리오","間に合ったんだからいいでしょ。","맞춰왔으니까 됐잖아."],
+   ["아카네","そういう問題じゃないの。","그런 문제가 아니야."],
+   ["리오","じゃあどういう問題なの。","그럼 어떤 문제인데."]]},
+ "히나":{sit:"히나 블라우스 단추 안 잠김", L:[
+   ["아카네","林さん。ボタン。","하야시. 단추."],
+   ["히나","あー……めんどくさい。","아……귀찮아."],
+   ["아카네","……。","히나 앞에 서서 올려다봄"],
+   ["히나","わーったって……","알았다니까……"]]},
+ "이츠키":{sit:"방과후, 둘 다 마지막까지 남아있음", L:[
+   ["이츠키","…まだいたんだ。","…아직 있었구나."],
+   ["아카네","あなたもでしょう。","너도잖아."],
+   ["이츠키","…まあ。","…뭐."]]},
+ "유이":{sit:"유이가 교실에서 시끄럽게 떠듦", L:[
+   ["아카네","蒼井さん、うるさい。","아오이, 시끄러워."],
+   ["유이","えー茜もうちょい力抜きなって。笑ったことある？","에- 아카네 좀 힘 빼라. 웃어본 적 있어?"],
+   ["아카네","……ある。","……있어."],
+   ["유이","うそでしょ。","거짓말이지."]]},
+ "미유":{sit:"아침 순찰 중 매일 마주치는 루틴", L:[
+   ["미유","茜、今日も早いね。","아카네, 오늘도 일찍이네."],
+   ["아카네","あなたもでしょう。","너도잖아."],
+   ["미유","まあね。","뭐."],
+   ["","","이게 둘의 아침 인사 전부. 근데 매일 함"]]},
+ "히이라기":{sit:"복장검사에 걸린 히이라기", L:[
+   ["아카네","榎さん。リボン曲がってる。","에노키. 리본 비뚤어졌어."],
+   ["히이라기","す、すみません！今直します！","죄, 죄송합니다! 지금 고칩니다!"],
+   ["아카네","……次は気をつけて。","……다음엔 조심해."],
+   ["","","히이라기 허둥지둥 리본 고치는 동안 아카네는 이미 돌아서 있음"]]},
+ "미즈호":{sit:"소등 후 미즈호가 자판기 앞에 있음", L:[
+   ["아카네","風間さん、消灯過ぎてるわよ。","카자마, 소등 지났어."],
+   ["미즈호","…喉渇いて。","…목 말라서."],
+   ["아카네","……早く戻りなさい。","……빨리 돌아가."],
+   ["","","미즈호가 느릿느릿 돌아가고, 아카네 한숨"]]},
+ "츠바사":{sit:"츠바사만 아카네의 긴장을 풀 수 있음", L:[
+   ["츠바사","茜、そんな顔してると誰も寄ってこないよ。","아카네, 그런 얼굴하면 아무도 안 다가와."],
+   ["아카네","……別にそんな顔してない。","……별로 그런 얼굴 안 하고 있어."],
+   ["츠바사","してるよ。","하고 있어."],
+   ["","","아카네가 말 없이 표정 살짝 풀림. 본인 자각 없음"]]},
+ "린":{sit:"조회 때 린이 뒤에서 장난치고 있음", L:[
+   ["아카네","穂積さん、並んで。","호즈미, 줄 서."],
+   ["린","えー茜堅いって！もうちょっとくらいいいでしょ。","에- 아카네 딱딱해! 좀 더 괜찮잖아."],
+   ["아카네","ダメ。","안 돼."],
+   ["린","はいはい……","네네……"]]}
+},
+"리오":{
+ "아카네":{sit:"아카네가 또 규칙 얘기 꺼냄", L:[
+   ["리오","鷺沢、また規則の話？","사기사와, 또 규칙 얘기?"],
+   ["아카네","規則じゃなくて常識よ。","규칙이 아니라 상식이야."],
+   ["리오","あんたの常識、普通じゃないから。","네 상식은 보통이 아니거든."]]},
+ "히나":{sit:"식당에서 히나가 리오 반찬에 손 뻗음", L:[
+   ["히나","リオ、それ食べないならもらうね。","리오, 그거 안 먹으면 가져간다."],
+   ["리오","誰がくれるって言った？","누가 준다고 했어?"],
+   ["히나","じゃあ食べなよ。","그럼 먹으라고."],
+   ["리오","……食べるっての。","……먹는다니까."]]},
+ "이츠키":{sit:"수업 중 이츠키가 자고 있는 듯", L:[
+   ["리오","白瀬、寝てるでしょ。","시라세, 자고 있지."],
+   ["이츠키","…起きてる。","…깨어 있어."],
+   ["리오","目閉じてたじゃん。","눈 감고 있었잖아."],
+   ["이츠키","…考え事。","…생각하는 중."],
+   ["리오","絶対嘘でしょ。","절대 거짓말이지."]]},
+ "유이":{sit:"유이가 리오를 놀리러 옴", L:[
+   ["유이","リオー、今日も怒ってるの？","리오, 오늘도 화났어?"],
+   ["리오","怒ってないし。あんたがうざいだけ。","안 화났거든. 네가 짜증날 뿐이야."],
+   ["유이","照れてるー。","쑥스러워하는 거지~"],
+   ["리오","どこが！","어디가!"]]},
+ "미유":{sit:"체육 후 미유가 수건 건넴", L:[
+   ["미유","葛野、タオル。","쿠즈노, 수건."],
+   ["리오","……別に頼んでないけど。","……별로 부탁 안 했는데."],
+   ["","","받아 들면서 고개 돌림"],
+   ["미유","どういたしまして。","천만에."]]},
+ "히이라기":{sit:"히이라기가 뭔가 물어보려다 주춤", L:[
+   ["히이라기","あの、葛野さん……これってどう思いますか？","저, 쿠즈노……이거 어떻게 생각해요?"],
+   ["리오","知らない。","몰라."],
+   ["히이라기","う……","으……"],
+   ["","","5분 뒤 리오가 슬쩍 히이라기 책상에 메모 놓고 감. 답이 적혀있음"]]},
+ "미즈호":{sit:"리오가 미즈호한테 말 걸기 시도", L:[
+   ["리오","風間、ちゃんと聞いてる？","카자마, 제대로 듣고 있어?"],
+   ["미즈호","…うん。","…응."],
+   ["리오","絶対聞いてないでしょ。","절대 안 듣고 있지."],
+   ["미즈호","…聞いてた。","…듣고 있었어."],
+   ["","","리오 이가 갈림. 근데 다음 날도 또 말 걸러 감"]]},
+ "츠바사":{sit:"츠바사가 부드럽게 말 걸 때", L:[
+   ["츠바사","リオ、ちゃんと食べた？","리오, 제대로 먹었어?"],
+   ["리오","なに、お母さん？","뭐야, 엄마?"],
+   ["츠바사","否定はしないんだ。","부정은 안 하네."],
+   ["리오","うるさい。","시끄러."]]},
+ "린":{sit:"린이 부활동 끝나고 텐션 높게 돌아옴", L:[
+   ["린","リオー！今日の練習マジでやばかったって！","리오! 오늘 연습 진짜 장난 아니었다니까!"],
+   ["리오","知らないし、うるさい。","알게 뭐야, 시끄러."],
+   ["린","えー聞いてよ！着地三回連続成功！","에- 들어봐! 착지 세 번 연속 성공!"],
+   ["리오","……ふーん。","……흥."],
+   ["","","관심 없는 척하면서 내일 린 연습 보러 감"]]}
+},
+"히나":{
+ "아카네":{sit:"아카네한테 또 지적받은 뒤", L:[
+   ["히나","茜、もうちょっと緩くなれないの？","아카네, 좀 더 느슨해질 수 없어?"],
+   ["아카네","緩くする理由がないわ。","느슨해질 이유가 없어."],
+   ["히나","だからモテないんだって。","그래서 인기 없는 거라니까."],
+   ["아카네","……関係ないでしょう。","……관계없잖아."]]},
+ "리오":{sit:"리오가 또 예측 맞았다고 우쭐할 때", L:[
+   ["히나","リオ、また当たったの？ムカつく。","리오, 또 맞췄어? 짜증나."],
+   ["리오","当たり前じゃん。","당연하지."],
+   ["히나","一回くらい外れてみなよ！","한 번쯤 틀려봐!"]]},
+ "이츠키":{sit:"이츠키한테 말 걸기 도전", L:[
+   ["히나","イツキー何聴いてんの？","이츠키~ 뭐 듣고 있어?"],
+   ["이츠키","…別に。","…별로."],
+   ["히나","もうちょっと何かないの！","좀 더 뭐 없어!"],
+   ["이츠키","…ない。","…없어."],
+   ["히나","あんたと話してると壁としゃべってる気分……","너랑 얘기하면 벽이랑 대화하는 기분……"]]},
+ "유이":{sit:"둘이 같이 사고침", L:[
+   ["유이","ヒナ、ナイスー！","히나, 나이스!"],
+   ["히나","うるさい！あんたが言い出したんでしょ！","시끄러! 네가 말꺼냈잖아!"],
+   ["유이","あたし？あたしは提案しただけだし。","나? 난 제안만 했을 뿐인데."],
+   ["히나","こいつ……！","이 녀석……!"],
+   ["","","미유가 뒤에서 한숨 쉬고 있음"]]},
+ "미유":{sit:"교실 책상 넘어뜨린 뒤", L:[
+   ["미유","ヒナ。弁償ね。","히나. 변상이다."],
+   ["히나","……ごめん。マジでごめん、ミユ。","……미안. 진짜 미안, 미유."],
+   ["미유","いいから早く片付けて。","됐으니까 빨리 치워."],
+   ["","","히나가 미유한테만 이렇게 순해짐"]]},
+ "히이라기":{sit:"히이라기가 댄스 안무 성공하고 돌아옴", L:[
+   ["히이라기","ヒナちゃん！今日振付決まったんです！","히나! 오늘 안무 성공했어요!"],
+   ["히나","おお！やるじゃん！","오오! 하는구나!"],
+   ["히이라기","へへ……","에헤……"],
+   ["","","히나가 히이라기 머리 쓱 한번 쓸고 지나감"]]},
+ "미즈호":{sit:"미즈호가 머리 안 말리고 돌아다님", L:[
+   ["히나","ミズホ、髪濡れてるよ！乾かしなって！","미즈호, 머리 젖었어! 말려!"],
+   ["미즈호","…別に。","…별로."],
+   ["히나","別にじゃないって！風邪ひくでしょ！","별로가 아니야! 감기 걸리잖아!"],
+   ["미즈호","……。","반응 없음"],
+   ["히나","おい聞いてんの！","야 듣고 있어!"]]},
+ "츠바사":{sit:"츠바사가 히나 찢어진 단추 꿰매주는 중", L:[
+   ["츠바사","ヒナ、また取れたの？三回目だよ。","히나, 또 떨어졌어? 세 번째야."],
+   ["히나","わ、悪い……あんたほんと器用だよね。","미, 미안……너 진짜 손재주 좋다."],
+   ["츠바사","弟の服もいつも直してるからね。","남동생 옷도 항상 고치니까."],
+   ["히나","……あたし弟より手かかってんの？","……나 남동생보다 손 더 가는 거야?"]]},
+ "린":{sit:"같이 식당 가는 길", L:[
+   ["히나","リンー今日何食べる？","린~ 오늘 뭐 먹어?"],
+   ["린","カレーでしょ！今日カレーの日じゃん。","카레지! 오늘 카레 날이잖아."],
+   ["히나","よし、大盛り二つね！","좋아, 곱빼기 둘이다!"],
+   ["린","あたし大盛りとは言ってないんだけど。","나 곱빼기라곤 안 했는데."],
+   ["히나","大盛りでしょ！","곱빼기지!"],
+   ["린","はいはい……","네네……"]]}
+},
+"이츠키":{
+ "아카네":{sit:"아카네가 도장에서 연습하는 걸 이츠키가 지나가며 봄", L:[
+   ["이츠키","…遅くまでやるんだ。","…늦게까지 하네."],
+   ["아카네","あなたも帰ってないでしょう。","너도 안 갔잖아."],
+   ["이츠키","…まあ。","…뭐."]]},
+ "리오":{sit:"리오가 이츠키한테 뭐라고 말 건네는데", L:[
+   ["리오","白瀬、明日の教科書持ってる？","시라세, 내일 교과서 가지고 있어?"],
+   ["이츠키","…ある。","…있어."],
+   ["리오","貸して。","빌려줘."],
+   ["이츠키","…いいけど。","…좋은데."],
+   ["","","이게 둘 사이에서 가장 긴 대화"]]},
+ "히나":{sit:"히나가 과자 나눠주러 옴", L:[
+   ["히나","イツキも食べる？","이츠키도 먹을래?"],
+   ["이츠키","…いい。","…됐어."],
+   ["히나","遠慮すんなって！","사양하지 마!"],
+   ["이츠키","…じゃあ一個。","…그럼 하나."],
+   ["히나","素直じゃん！","솔직하잖아!"]]},
+ "유이":{sit:"유이가 이츠키 셔터 소리 들음", L:[
+   ["유이","イツキ今なんか撮った？","이츠키 지금 뭐 찍었어?"],
+   ["이츠키","…別に。","…별로."],
+   ["유이","あたし写ってない？","나 찍힌 거 아니야?"],
+   ["이츠키","…写ってない。","…안 찍혔어."],
+   ["유이","絶対嘘じゃん。","절대 거짓말이잖아."]]},
+ "미유":{sit:"미유가 이츠키한테 도시락 반찬 건넴", L:[
+   ["미유","白瀬、これ余ったから。","시라세, 이거 남아서."],
+   ["이츠키","…ありがと。","…고마워."],
+   ["","","이츠키가 고맙다고 한 건 처음. 미유도 살짝 놀람"]]},
+ "히이라기":{sit:"히이라기가 이츠키한테 속얘기 중", L:[
+   ["히이라기","イツキちゃん……あたし今日も間違えちゃった。","이츠키……나 오늘도 틀려버렸어."],
+   ["이츠키","…そう。","…그래."],
+   ["히이라기","聞いてる……？","듣고 있어……?"],
+   ["이츠키","…聞いてる。次はできるよ。","…듣고 있어. 다음엔 될 거야."],
+   ["","","이츠키 그 말 하고 바로 창밖 봄. 히이라기만 웃음"]]},
+ "미즈호":{sit:"둘이 복도에서 나란히 걸음", L:[
+   ["","","말 없이 나란히 걷는 중. 5분째."],
+   ["미즈호","…。",""],
+   ["이츠키","…。",""],
+   ["","","주변: '저 둘 무슨 얘기 하는 거야?'"]]},
+ "츠바사":{sit:"츠바사가 이츠키 소매 만지작거림", L:[
+   ["츠바사","イツキのこの素材、触り心地いいね。","이츠키 이 소재, 촉감 좋다."],
+   ["이츠키","…自分で触ったら。","…직접 만져봐."],
+   ["츠바사","触ってるじゃん、今。","만지고 있잖아, 지금."],
+   ["이츠키","…好きにして。","…맘대로 해."]]},
+ "린":{sit:"린이 이츠키한테 사진 찍혀달라고 부탁", L:[
+   ["린","イツキ、体操の写真撮ってくれない？","이츠키, 체조 사진 찍어줄 수 없어?"],
+   ["이츠키","…面倒。","…귀찮아."],
+   ["린","お願い！一枚だけ！","부탁! 한 장만!"],
+   ["이츠키","…一枚だけ。","…한 장만."],
+   ["","","결국 30장 찍어줌"]]}
+},
+"유이":{
+ "아카네":{sit:"아카네가 또 딱딱하게 굴 때", L:[
+   ["유이","茜さー、そんな力入れてたら持たないよ。","아카네 말이야~, 그렇게 힘 주면 못 버텨."],
+   ["아카네","別に力なんて入れてない。","별로 힘 같은 거 안 주고 있어."],
+   ["유이","入れてる入れてる。","주고 있어 주고 있어."],
+   ["아카네","……。","표정 살짝 풀리지만 인정 안 함"]]},
+ "리오":{sit:"리오가 또 틀린 거 인정 안 할 때", L:[
+   ["유이","リオ、素直に言えばいいのに。","리오, 솔직하게 말하면 되는데."],
+   ["리오","何が。","뭐가."],
+   ["유이","間違えたって。","틀렸다고."],
+   ["리오","間違えてない。","안 틀렸어."],
+   ["유이","はいはい。","네네."]]},
+ "히나":{sit:"히나랑 같이 편의점 습격", L:[
+   ["유이","ヒナ、アイス何味にする？","히나, 아이스크림 무슨 맛으로 할 거야?"],
+   ["히나","全部！","전부!"],
+   ["유이","お金足りないでしょ。","돈 안 되잖아."],
+   ["히나","じゃあ半分出して。","그럼 반 내."],
+   ["유이","なんでよ。","왜."]]},
+ "이츠키":{sit:"이츠키가 몰래 뭔가 읽다 들킴", L:[
+   ["유이","イツキ何読んでんの？","이츠키 뭐 읽고 있어?"],
+   ["이츠키","…別に。","…별로."],
+   ["유이","ヘアケアのカタログじゃん！","헤어케어 카탈로그잖아!"],
+   ["이츠키","…違う。","…아니야."],
+   ["유이","隠さなくていいのにー。","숨기지 않아도 되는데~"]]},
+ "미유":{sit:"미유가 유이 머리 고쳐줌", L:[
+   ["미유","ユイ、寝癖ついてるよ。","유이, 잠꼬대 붙어있어."],
+   ["유이","えーマジ？","에- 진짜?"],
+   ["미유","じっとして。","가만히 있어."],
+   ["","","미유가 자연스럽게 유이 머리 정리해줌. 유이 평소와 달리 가만히 있음"]]},
+ "히이라기":{sit:"히이라기가 유이 라이브 보고 감동", L:[
+   ["히이라기","유이さん！さっきのライブすごかったです！","유이! 아까 라이브 대단했어요!"],
+   ["유이","ありがと。まあ普通だったけど。","고마워. 뭐 보통이었는데."],
+   ["히이라기","普通じゃないです！鳥肌立ちました！","보통 아니에요! 소름 돋았어요!"],
+   ["유이","……そう？ へへ。","……그래? 에헤."]]},
+ "미즈호":{sit:"미즈호가 또 단답으로 끝내려 함", L:[
+   ["유이","ミズホ、今日の夕飯何がいい？","미즈호, 오늘 저녁 뭐가 좋아?"],
+   ["미즈호","…なんでも。","…아무거나."],
+   ["유이","なんでもじゃわかんないって。","아무거나론 모르겠다니까."],
+   ["미즈호","…カレー。","…카레."],
+   ["유이","最初から言えばいいのに。","처음부터 말하면 되는데."]]},
+ "츠바사":{sit:"츠바사가 유이 손 봄", L:[
+   ["츠바사","ユイ、ギターダコすごいね。","유이, 기타 굳은살 엄청나다."],
+   ["유이","えーダサくない？","에- 별로 아니야?"],
+   ["츠바사","ううん。頑張ってる手だなって。","아니. 열심히 한 손이구나 싶어서."],
+   ["유이","……なにそれ。","……뭐야 그거."],
+   ["","","유이 귀 빨개짐"]]},
+ "린":{sit:"린이 또 Ⓤ 근처에서 얼어붙음", L:[
+   ["유이","リン、また固まってるー。","린, 또 굳어있다~"],
+   ["린","固まってない！","안 굳었어!"],
+   ["유이","顔真っ赤じゃん。","얼굴 새빨갛잖아."],
+   ["린","……ユイのせいだから！","……유이 때문이야!"],
+   ["유이","あたしのせいなんだ。","내 탓이구나."]]}
+},
+"미유":{
+ "아카네":{sit:"아카네 겉으로 괜찮은 척 할 때", L:[
+   ["미유","茜、無理しないで。","아카네, 무리하지 마."],
+   ["아카네","無理なんてしてない。","무리 같은 거 안 해."],
+   ["미유","……そう。何かあったら言ってね。","……그래. 뭔가 있으면 말해."],
+   ["","","아카네 대답 없음. 미유도 그 이상 묻지 않음"]]},
+ "리오":{sit:"리오가 비 맞고 옴", L:[
+   ["미유","葛野、傘忘れたの？","쿠즈노, 우산 잊었어?"],
+   ["리오","忘れてない。風が強かっただけ。","안 잊었어. 바람이 셌을 뿐이야."],
+   ["미유","はい、タオル。","자, 수건."],
+   ["리오","……ありがと。","……고마워."]]},
+ "히나":{sit:"히나가 또 문제를 일으킴", L:[
+   ["미유","ヒナ、今度は何したの。","히나, 이번엔 뭐 한 거야."],
+   ["히나","えっと……窓ガラスが……","음……유리창이……"],
+   ["미유","……片付けるから手伝って。","……치울 테니까 도와줘."],
+   ["히나","ミユ……マジでごめん。","미유……진짜 미안."]]},
+ "이츠키":{sit:"이츠키가 혼자 남아있을 때", L:[
+   ["미유","白瀬、もう暗いよ。帰らないの？","시라세, 벌써 어두워. 안 돌아가?"],
+   ["이츠키","…もうちょっと。","…조금만 더."],
+   ["미유","……じゃああたしもいるから。","……그럼 나도 있을게."],
+   ["이츠키","…好きにして。","…맘대로 해."]]},
+ "유이":{sit:"유이가 미유 서랍 뒤지다 단것 발견", L:[
+   ["유이","ミユ！この引き出しお菓子だらけじゃん！","미유! 이 서랍 과자투성이잖아!"],
+   ["미유","……見ないで。","……보지 마."],
+   ["유이","えー可愛いじゃん、ギャップ！","에- 귀엽잖아, 갭!"],
+   ["미유","……可愛くない。","……안 귀여워."]]},
+ "히이라기":{sit:"히이라기가 실수해서 울 것 같을 때", L:[
+   ["미유","榎、大丈夫。誰でも間違えるよ。","에노키, 괜찮아. 누구나 틀려."],
+   ["히이라기","でも……みんなの前で……","하지만……다들 앞에서……"],
+   ["미유","気にしてるの、たぶん自分だけだから。","신경 쓰는 건, 아마 자기뿐이니까."],
+   ["","","미유가 히이라기 어깨 가볍게 두드려줌"]]},
+ "미즈호":{sit:"미즈호가 밥 안 먹는 것 같을 때", L:[
+   ["미유","風間、ちゃんと食べた？","카자마, 제대로 먹었어?"],
+   ["미즈호","…食べた。","…먹었어."],
+   ["미유","嘘。お弁当そのまま残ってたよ。","거짓말. 도시락 그대로 남아있었어."],
+   ["미즈호","……。",""],
+   ["미유","はい、おにぎり。","자, 주먹밥."]]},
+ "츠바사":{sit:"츠바사랑 같이 기숙사 당번", L:[
+   ["츠바사","ミユはいつも最後まで残ってるよね。","미유는 항상 마지막까지 남아있네."],
+   ["미유","誰かがやらないといけないから。","누군가 해야 하니까."],
+   ["츠바사","たまには頼ってもいいのに。","가끔은 기대도 괜찮은데."],
+   ["미유","……慣れてないだけ。","……익숙하지 않을 뿐이야."]]},
+ "린":{sit:"린이 체조 시합 전 긴장할 때", L:[
+   ["미유","凛、深呼吸して。","린, 심호흡해."],
+   ["린","ミユ……あたし大丈夫かな。","미유……나 괜찮을까."],
+   ["미유","大丈夫。いつも通りやれば。","괜찮아. 늘 하던 대로 하면."],
+   ["린","……うん。","……응."]]}
+},
+"히이라기":{
+ "아카네":{sit:"아카네한테 또 지적받음", L:[
+   ["아카네","榎さん、スカート丈。","에노키, 치마 길이."],
+   ["히이라기","ひっ！す、すみません！","엇! 죄, 죄송합니다!"],
+   ["아카네","……直したら行って。","……고치면 가도 돼."],
+   ["히이라기","は、はい！……あの、怒ってます？","네, 네! ……저, 화났어요?"],
+   ["아카네","怒ってない。","안 화났어."]]},
+ "리오":{sit:"리오한테 용기내서 말 걸었는데", L:[
+   ["히이라기","葛野さん、今日の放送すごく良かったです！","쿠즈노, 오늘 방송 정말 좋았어요!"],
+   ["리오","……そう。","……그래."],
+   ["히이라기","えっと……好きな曲とかありますか？","음……좋아하는 곡 같은 거 있어요?"],
+   ["리오","……ある。","……있어."],
+   ["히이라기","(話広がらない……！)","(대화가 안 넓어져……!)"]]},
+ "히나":{sit:"히나가 히이라기 과자 뺏어먹음", L:[
+   ["히이라기","ヒナちゃん！それあたしの！","히나! 그거 내 거야!"],
+   ["히나","一個くらいいいじゃん。","한 개쯤 괜찮잖아."],
+   ["히이라기","よくないです！","안 괜찮아요!"],
+   ["히나","じゃあ明日二個返す。","그럼 내일 두 개 돌려줄게."],
+   ["히이라기","……本当ですか？","……진짜예요?"]]},
+ "이츠키":{sit:"이츠키한테 오늘 있었던 일 줄줄이 말하는 중", L:[
+   ["히이라기","それでね、今日の振付でこうやって回ったら……","그래서, 오늘 안무에서 이렇게 돌았더니……"],
+   ["이츠키","…うん。","…응."],
+   ["히이라기","聞いてる？","듣고 있어?"],
+   ["이츠키","…聞いてる。続けて。","…듣고 있어. 계속해."],
+   ["","","히이라기 신나서 10분 더 말함"]]},
+ "유이":{sit:"유이 라이브 보고 떨려서 말 걸기", L:[
+   ["히이라기","ゆ、ユイさん！あの……サインもらえますか！","유, 유이! 저……사인 받을 수 있을까요!"],
+   ["유이","あはは、同じクラスじゃん。サインって。","아하하, 같은 반이잖아. 사인이라니."],
+   ["히이라기","で、でもすごかったから……！","하, 하지만 대단했으니까……!"],
+   ["유이","ありがと。じゃあ特別ね。","고마워. 그럼 특별히."]]},
+ "미유":{sit:"미유가 도시락 반찬 나눠줌", L:[
+   ["미유","榎、これ余ったから。","에노키, 이거 남아서."],
+   ["히이라기","え！いいんですか！","어! 괜찮아요?!"],
+   ["미유","うん。","응."],
+   ["히이라기","美結さんの卵焼き、世界一です……！","미유의 달걀말이, 세계 최고예요……!"]]},
+ "미즈호":{sit:"미즈호 옆에서 혼자 떠드는 중", L:[
+   ["히이라기","ミズホちゃん、今日のプール冷たかった？","미즈호, 오늘 수영장 차가웠어?"],
+   ["미즈호","…普通。","…보통."],
+   ["히이라기","昨日は？","어제는?"],
+   ["미즈호","…普通。","…보통."],
+   ["히이라기","全部普通なの……？","전부 보통이야……?"]]},
+ "츠바사":{sit:"츠바사가 히이라기 머리끈 만들어줌", L:[
+   ["츠바사","柊、これ作ってみたんだけど。","히이라기, 이거 만들어봤는데."],
+   ["히이라기","えっ！かわいい！あたしに？！","엣! 귀여워! 나한테?!"],
+   ["츠바사","うん。ピンクが似合うかなって。","응. 핑크가 어울릴까 싶어서."],
+   ["히이라기","つ、翼さん大好きです！！","츠, 츠바사 너무 좋아해요!!"]]},
+ "린":{sit:"린이랑 같이 간식 시간", L:[
+   ["히이라기","リンちゃん、このグミ分けよ？","린, 이 젤리 나눠 먹을래?"],
+   ["린","いいの？やったー！","괜찮아? 신난다!"],
+   ["히이라기","半分こね。","반반이다."],
+   ["린","柊って優しいよね。","히이라기 착하다."],
+   ["히이라기","え、えへへ……","에, 에헤헤……"]]}
+},
+"미즈호":{
+ "아카네":{sit:"아카네가 소등 후 미즈호 발견", L:[
+   ["아카네","風間さん、また自販機。","카자마, 또 자판기."],
+   ["미즈호","…喉渇いて。","…목 말라서."],
+   ["아카네","毎日同じ言い訳ね。","매일 같은 변명이네."],
+   ["미즈호","…言い訳じゃない。","…변명 아니야."]]},
+ "리오":{sit:"리오가 또 말 걸어옴", L:[
+   ["리오","風間、週末どこか行くの？","카자마, 주말에 어디 가?"],
+   ["미즈호","…別に。","…별로."],
+   ["리오","別にって何よ。","별로가 뭐야."],
+   ["미즈호","…どこも。","…아무데도."],
+   ["","","리오 이가 갈림"]]},
+ "히나":{sit:"히나가 미즈호 끌고 다님", L:[
+   ["히나","ミズホ、一緒に食堂行こ！","미즈호, 같이 식당 가자!"],
+   ["미즈호","…一人で行ける。","…혼자 갈 수 있어."],
+   ["히나","つまんないこと言わないの！","재미없는 소리 하지 마!"],
+   ["미즈호","……。",""],
+   ["","","결국 같이 감"]]},
+ "이츠키":{sit:"둘이 나란히 앉아 각자 할 일 중", L:[
+   ["","","이츠키 카탈로그 넘기는 중. 미즈호 탄산수 마시는 중."],
+   ["이츠키","…それ何味。","…그거 무슨 맛."],
+   ["미즈호","…レモン。","…레몬."],
+   ["이츠키","…ふーん。","…흥."],
+   ["","","이게 둘 사이에선 긴 대화"]]},
+ "유이":{sit:"유이가 미즈호 반찬 밀어줌 목격", L:[
+   ["유이","ミズホ、今リンに自分のおかず渡したでしょ。","미즈호, 지금 린한테 반찬 넘겼지."],
+   ["미즈호","…渡してない。","…안 넘겼어."],
+   ["유이","見てたんだけど。","봤는데."],
+   ["미즈호","…見間違い。","…착각이야."]]},
+ "미유":{sit:"미유가 미즈호 밥 안 먹는 거 캐치", L:[
+   ["미유","風間、お昼まだでしょう。","카자마, 점심 아직이지."],
+   ["미즈호","…食べた。","…먹었어."],
+   ["미유","嘘。","거짓말."],
+   ["미즈호","……。",""],
+   ["미유","はい、これ食べて。","자, 이거 먹어."]]},
+ "히이라기":{sit:"히이라기가 또 졸랑졸랑 따라다님", L:[
+   ["히이라기","ミズホちゃん、今日も泳ぐの？","미즈호, 오늘도 수영해?"],
+   ["미즈호","…うん。","…응."],
+   ["히이라기","見ていい？","봐도 돼?"],
+   ["미즈호","…好きにして。","…맘대로 해."],
+   ["","","히이라기 풀사이드에서 혼자 응원함. 미즈호 안 막음"]]},
+ "츠바사":{sit:"츠바사가 미즈호한테 머플러 감아줌", L:[
+   ["츠바사","ミズホ、寒いでしょ。これ巻いて。","미즈호, 춥잖아. 이거 둘러."],
+   ["미즈호","…寒くない。","…안 추워."],
+   ["츠바사","唇紫だよ。","입술 보라색이야."],
+   ["미즈호","……。","감겨짐"],
+   ["","","거부 안 함"]]},
+ "린":{sit:"린이 미즈호 옆자리에서 뭔가 중얼거림", L:[
+   ["린","ミズホ、今日の体操見てくれた？","미즈호, 오늘 체조 봐줬어?"],
+   ["미즈호","…見てた。","…봤어."],
+   ["린","どうだった？","어땠어?"],
+   ["미즈호","…よかった。","…좋았어."],
+   ["린","……！ほんと？！","……! 진짜?!"],
+   ["","","미즈호 고개만 끄덕. 린 하루종일 기분 좋음"]]}
+},
+"츠바사":{
+ "아카네":{sit:"아카네가 유일하게 경계 풀고 말 많아지는 순간", L:[
+   ["아카네","……今日の練習、ちょっと納得いかなくて。","……오늘 연습, 좀 납득이 안 가서."],
+   ["츠바사","珍しいね、茜がそういうこと言うの。","드물다, 아카네가 그런 말 하는 거."],
+   ["아카네","……別に。忘れて。","……아니야. 잊어."],
+   ["츠바사","忘れないよ。","안 잊어."],
+   ["","","아카네 살짝 당황하지만 티 안 냄"]]},
+ "리오":{sit:"리오가 우산 두 개 챙겨왔을 때", L:[
+   ["츠바사","リオ、傘二本持ってない？","리오, 우산 두 개 들고 있지 않아?"],
+   ["리오","……たまたま。","……우연히."],
+   ["츠바사","一本、誰かにあげるつもりでしょ。","한 개, 누구한테 줄 생각이지."],
+   ["리오","……うるさい。","……시끄러."]]},
+ "히나":{sit:"히나 운동하다 무릎 까짐", L:[
+   ["츠바사","ヒナ、ちょっと見せて。","히나, 좀 보여봐."],
+   ["히나","平気平気！","괜찮아 괜찮아!"],
+   ["츠바사","平気じゃないでしょ。じっとして。","괜찮지 않잖아. 가만히 있어."],
+   ["","","츠바사가 반창고 붙여주는 동안 히나 조용히 있음"]]},
+ "이츠키":{sit:"이츠키 소매 만짐", L:[
+   ["츠바사","イツキ、この生地ふわふわだね。","이츠키, 이 천 폭신폭신하다."],
+   ["이츠키","…そう。","…그래."],
+   ["츠바사","弟にも作ってあげたいな、こういうの。","남동생한테도 만들어주고 싶다, 이런 거."],
+   ["이츠키","…勝手に触ってる割に弟の話。","…맘대로 만지면서 남동생 얘기."]]},
+ "유이":{sit:"유이가 츠바사 손재주에 감탄", L:[
+   ["유이","ツバサってほんと器用だよね。","츠바사 진짜 손재주 좋다."],
+   ["츠바사","そうかな。慣れてるだけだよ。","그런가. 익숙할 뿐이야."],
+   ["유이","あたしにも何か作ってよ。","나한테도 뭔가 만들어줘."],
+   ["츠바사","いいよ。何がいい？","좋아. 뭐가 좋아?"]]},
+ "미유":{sit:"미유가 몰래 무리하고 있을 때", L:[
+   ["츠바사","ミユ、顔色悪いよ。","미유, 안색 안 좋아."],
+   ["미유","大丈夫。","괜찮아."],
+   ["츠바사","大丈夫じゃないでしょ。少し休んで。","괜찮지 않잖아. 좀 쉬어."],
+   ["미유","……ごめん。","……미안."]]},
+ "히이라기":{sit:"히이라기한테 머리끈 선물", L:[
+   ["츠바사","柊、これ新しいの作ったんだけど。","히이라기, 이거 새로 만들었는데."],
+   ["히이라기","え！！また！？かわいい！！","에!! 또!? 귀여워!!"],
+   ["츠바사","今度はリボン型にしてみた。","이번엔 리본형으로 해봤어."],
+   ["히이라기","翼さん天才です！！","츠바사 천재예요!!"]]},
+ "미즈호":{sit:"미즈호가 추운데 코트 안 입음", L:[
+   ["츠바사","ミズホ、上着着ないの？","미즈호, 겉옷 안 입어?"],
+   ["미즈호","…暑いから。","…더워서."],
+   ["츠바사","唇紫だけど。","입술 보라색인데."],
+   ["미즈호","……。",""],
+   ["","","츠바사가 자기 카디건 걸쳐줌. 미즈호 거부 안 함"]]},
+ "린":{sit:"린이 남동생 얘기 물어볼 때", L:[
+   ["린","ツバサ、弟くんたち元気？","츠바사, 남동생들 잘 있어?"],
+   ["츠바사","うん。昨日電話で喧嘩してた。","응. 어제 전화로 싸우고 있었어."],
+   ["린","あはは、かわいい。","아하하, 귀여워."],
+   ["츠바사","全然可愛くないよ。……でもまあ、元気ならいいかな。","전혀 안 귀여워. ……근데 뭐, 건강하면 됐지."]]}
+},
+"린":{
+ "아카네":{sit:"아카네한테 또 주의받음", L:[
+   ["아카네","穂積さん、廊下は走らないで。","호즈미, 복도에서 뛰지 마."],
+   ["린","す、すみません！","죄, 죄송합니다!"],
+   ["아카네","……危ないから。","……위험하니까."],
+   ["린","(怒ってないのかな……怖い……)","(화 안 난 건가……무서워……)"]]},
+ "리오":{sit:"리오한테 체조 동영상 보여주려다", L:[
+   ["린","リオ！これ見て、今日の着地！","리오! 이거 봐, 오늘 착지!"],
+   ["리오","……ふーん。","……흥."],
+   ["린","もうちょっとリアクションちょうだいよ！","좀 더 리액션 줘!"],
+   ["리오","……まあまあじゃない。","……괜찮잖아."],
+   ["린","(これリオの褒め言葉だ！)","(이거 리오의 칭찬이다!)"]]},
+ "히나":{sit:"히나랑 식당에서 텐션 높게", L:[
+   ["린","今日のハンバーグ最高じゃん！","오늘 햄버그 최고잖아!"],
+   ["히나","わかる！おかわりしようよ！","맞아! 리필하자!"],
+   ["린","えー太っちゃうよ。","에- 살 찌겠어."],
+   ["히나","気にすんなって！","신경 쓰지 마!"],
+   ["린","はいはい……あ、もう一個ください！","네네……아, 한 개 더 주세요!"]]},
+ "이츠키":{sit:"이츠키한테 사진 현상된 거 받음", L:[
+   ["이츠키","…これ。この前の。","…이거. 저번 거."],
+   ["린","え、撮ってくれてたの？！","어, 찍어줬던 거야?!"],
+   ["이츠키","…一枚だけって言ったけど。","…한 장만이라고 했는데."],
+   ["린","これ……三十枚あるんだけど。","이거……서른 장 있는데."],
+   ["이츠키","…気のせい。","…기분 탓이야."]]},
+ "유이":{sit:"유이가 린 놀림", L:[
+   ["유이","リン、あの人来たよー。","린, 그 사람 왔다~"],
+   ["린","えっ！？どこ！？","엣!? 어디!?"],
+   ["유이","嘘ー。","거짓말~"],
+   ["린","ユイ！！！","유이!!!"],
+   ["유이","あはは、ごめんごめん。","아하하, 미안미안."]]},
+ "미유":{sit:"시합 전 긴장할 때 미유가 옆에", L:[
+   ["린","ミユ……やっぱ怖い。","미유……역시 무서워."],
+   ["미유","大丈夫。練習通りやれば。","괜찮아. 연습한 대로 하면."],
+   ["린","……うん。ミユがいると安心する。","……응. 미유가 있으면 안심돼."],
+   ["미유","……行っておいで。","……다녀와."]]},
+ "히이라기":{sit:"히이라기랑 같이 동물 영상 봄", L:[
+   ["린","柊、これ見てこの猫！","히이라기, 이거 봐 이 고양이!"],
+   ["히이라기","かわいい！！こっちも見て！このうさぎ！","귀여워!! 이쪽도 봐! 이 토끼!"],
+   ["린","やば、可愛すぎ……","대박, 너무 귀여워……"],
+   ["히이라기","ね！！","맞지!!"]]},
+ "미즈호":{sit:"미즈호가 린한테 반찬 밀어줌", L:[
+   ["","","미즈호가 자기 달걀말이를 린 접시 쪽으로 슬쩍 밀어놓음"],
+   ["린","え、ミズホこれ……","어, 미즈호 이거……"],
+   ["미즈호","…別に。いらないだけ。","…별로. 필요 없을 뿐이야."],
+   ["린","ありがとう！","고마워!"],
+   ["미즈호","…。","시선 딴 데로"]]},
+ "츠바사":{sit:"츠바사가 린 머리 묶어줌", L:[
+   ["츠바사","凛、髪邪魔じゃない？結んであげようか。","린, 머리 안 거치적거려? 묶어줄까."],
+   ["린","え、いいの？","어, 괜찮아?"],
+   ["츠바사","じっとしてね。","가만히 있어."],
+   ["린","……ツバサの手、あったかい。","……츠바사 손, 따뜻하다."],
+   ["츠바사","弟にもよくやってあげるから、慣れてるんだ。","남동생한테도 자주 해주니까, 익숙해."]]}
+}
+};
+
+const SCEN2 = {
+"아카네":{
+ "리오":{sit:"시험 범위 두고 의견 충돌", L:[
+   ["아카네","ここまでが範囲でしょう。","여기까지가 범위잖아."],
+   ["리오","違うって。先生あの時こう言ってたじゃん。","아니라니까. 선생님 그때 이렇게 말했잖아."],
+   ["아카네","私のノートにはこう書いてある。","내 노트에는 이렇게 적혀있어."],
+   ["리오","あんたのノートが絶対だと思ってるところがもう……","네 노트가 절대라고 생각하는 게 벌써……"]]},
+ "히나":{sit:"히나가 아침 체조 대충 함", L:[
+   ["아카네","林さん、動きが雑。","하야시, 동작이 엉성해."],
+   ["히나","えーこれくらいでいいじゃん。","에- 이 정도면 되잖아."],
+   ["아카네","よくない。もう一回。","안 돼. 한 번 더."],
+   ["히나","鬼……","귀신……"],
+   ["아카네","聞こえてる。","들려."]]},
+ "이츠키":{sit:"이츠키가 아카네 도장 연습 몰래 찍음", L:[
+   ["아카네","……白瀬、今シャッター音した？","……시라세, 지금 셔터 소리 났어?"],
+   ["이츠키","…してない。","…안 났어."],
+   ["아카네","嘘。消して。","거짓말. 지워."],
+   ["이츠키","…いい写真だったのに。","…좋은 사진이었는데."]]},
+ "유이":{sit:"유이가 아카네 라멘 반만 먹는 거 궁금해함", L:[
+   ["유이","茜っていつもラーメン半分残すよね。なんで？","아카네 항상 라멘 반 남기잖아. 왜?"],
+   ["아카네","……別に。","……별로."],
+   ["유이","理由あるでしょ、絶対。","이유 있지, 절대."],
+   ["아카네","……昔の癖。それだけ。","……옛날 버릇. 그것뿐이야."],
+   ["","","더 묻지 않는 유이. 뭔가 느낀 듯"]]},
+ "미유":{sit:"둘이서 행사 준비물 정리", L:[
+   ["미유","茜、こっち持って。","아카네, 이쪽 들어."],
+   ["아카네","わかった。","알았어."],
+   ["","","말 없이 30분 작업. 한 번도 지시 안 해도 서로 뭘 해야 하는지 앎"],
+   ["미유","……息合うよね、あたしたち。","……손발이 맞네, 우리."],
+   ["아카네","……そうね。","……그러네."]]},
+ "히이라기":{sit:"히이라기가 아카네한테 단것 건넴", L:[
+   ["히이라기","鷺沢さん、これ……お疲れ様です！","사기사와, 이거……수고하셨어요!"],
+   ["아카네","……何これ。","……이게 뭐야."],
+   ["히이라기","チョコです！甘いもの好きかなって……","초콜릿이에요! 단 거 좋아하시나 싶어서……"],
+   ["아카네","……ありがとう。","……고마워."],
+   ["","","아카네 눈이 초콜릿에 먼저 감. 히이라기는 그걸 모름"]]},
+ "미즈호":{sit:"미즈호가 복도에서 카디건 벗고 있음", L:[
+   ["아카네","風間さん、廊下でそういうのやめて。","카자마, 복도에서 그러지 마."],
+   ["미즈호","…暑くて。","…더워서."],
+   ["아카네","更衣室で脱ぎなさい。","탈의실에서 벗어."],
+   ["미즈호","…面倒。","…귀찮아."],
+   ["아카네","……。","한숨"]]},
+ "츠바사":{sit:"츠바사가 아카네 머리 흐트러진 거 잡아줌", L:[
+   ["츠바사","茜、ここ跳ねてるよ。直してあげる。","아카네, 여기 삐져나왔어. 고쳐줄게."],
+   ["아카네","……自分でできる。","……혼자 할 수 있어."],
+   ["츠바사","いいから。じっとして。","됐으니까. 가만히 있어."],
+   ["","","아카네가 가만히 있음. 츠바사 앞에서만 이러는 거 본인 자각 없음"]]},
+ "린":{sit:"린이 아카네 앞에서 넘어짐", L:[
+   ["린","いたた……","아야야……"],
+   ["아카네","……大丈夫？","……괜찮아?"],
+   ["린","だ、大丈夫です！全然！","괜, 괜찮아요! 전혀!"],
+   ["아카네","膝、擦りむいてる。保健室行きなさい。","무릎, 까졌어. 양호실 가."],
+   ["","","아카네가 손 내밀어줌. 린 얼굴 빨개져서 못 잡음"]]}
+},
+"리오":{
+ "아카네":{sit:"아카네가 비 올 거 모르고 나감", L:[
+   ["리오","鷺沢、午後から雨だよ。","사기사와, 오후부터 비야."],
+   ["아카네","……傘持ってきてない。","……우산 안 가져왔어."],
+   ["리오","知ってる。だから言ってんの。","알아. 그래서 말해주는 거야."],
+   ["","","리오가 자기 우산 건네고 돌아감. 아카네 뒤에서 작게 ありがと(고마워)라는 말이 들림"]]},
+ "히나":{sit:"히나가 리오 일기예보 틀렸다고 놀림", L:[
+   ["히나","リオ、今日晴れるって言ったのに雨じゃん！","리오, 오늘 맑다더니 비잖아!"],
+   ["리오","……気象庁が悪い。","……기상청 탓이야."],
+   ["히나","自分のせいじゃないんだ。","자기 탓은 아니구나."],
+   ["리오","当たり前でしょ。","당연하지."],
+   ["","","리오 귀 빨개짐"]]},
+ "이츠키":{sit:"이츠키가 리오 방송 듣고 있었음", L:[
+   ["리오","白瀬、放送聞いてた？","시라세, 방송 들었어?"],
+   ["이츠키","…聞いてた。","…들었어."],
+   ["리오","……どうだった。","……어땠어."],
+   ["이츠키","…声、いいと思う。","…목소리, 좋다고 생각해."],
+   ["리오","っ……別にそういうこと聞いたんじゃないし。","……별로 그런 거 물어본 게 아닌데."]]},
+ "유이":{sit:"유이가 리오 메모 발견", L:[
+   ["유이","リオ、これ誰かに渡すつもりのメモでしょ。","리오, 이거 누구한테 줄 메모지."],
+   ["리오","違う。自分用。","아니야. 자기용."],
+   ["유이","'忘れないでね'って自分に書く？","'잊지 마'라고 자기한테 써?"],
+   ["리오","…………返して。","…………돌려줘."]]},
+ "미유":{sit:"미유가 리오 수업 중 잠든 거 깨워줌", L:[
+   ["미유","葛野、起きて。先生来るよ。","쿠즈노, 일어나. 선생님 와."],
+   ["리오","…寝てない。","…안 잤어."],
+   ["미유","頬に教科書の跡ついてるよ。","볼에 교과서 자국 났어."],
+   ["리오","……。","급히 볼 문지름"]]},
+ "히이라기":{sit:"히이라기가 리오한테 빌린 메모 돌려줌", L:[
+   ["히이라기","葛野さん、この前のメモありがとうございました！","쿠즈노, 저번 메모 감사했어요!"],
+   ["리오","……別に。","……별로."],
+   ["히이라기","あの、字すごく綺麗ですね……！","저, 글씨 정말 예쁘시네요……!"],
+   ["리오","……普通でしょ。","……보통이잖아."],
+   ["","","리오 시선 약간 피함"]]},
+ "미즈호":{sit:"미즈호가 리오 옆에서 탄산수 마시는 중", L:[
+   ["리오","風間、炭酸ばっかり飲んでると体に悪いよ。","카자마, 탄산만 마시면 몸에 안 좋아."],
+   ["미즈호","…大丈夫。","…괜찮아."],
+   ["리오","大丈夫じゃないって。一日何本飲んでんの。","괜찮지 않다니까. 하루에 몇 개 마시는 거야."],
+   ["미즈호","…数えてない。","…안 세."]]},
+ "츠바사":{sit:"츠바사가 리오 상처에 반창고 붙여줌", L:[
+   ["츠바사","リオ、指切ってるよ。見せて。","리오, 손가락 베었어. 보여줘."],
+   ["리오","いい、これくらい。","됐어, 이 정도는."],
+   ["츠바사","ダメ。はい、動かないで。","안 돼. 자, 움직이지 마."],
+   ["리오","……お節介。","……참견쟁이."],
+   ["츠바사","お節介で結構。","참견쟁이면 됐지."]]},
+ "린":{sit:"린이 리오한테 우산 빌리러 옴", L:[
+   ["린","リオ、傘余ってない？","리오, 우산 남는 거 없어?"],
+   ["리오","……ある。一本だけ。","……있어. 한 개만."],
+   ["린","貸して！明日返すから！","빌려줘! 내일 돌려줄게!"],
+   ["리오","…………はい。","…………여기."],
+   ["","","리오 우산 두 개 들고 다니는 이유가 이런 거"]]}
+},
+"히나":{
+ "아카네":{sit:"아카네랑 청소 당번", L:[
+   ["히나","茜ってほんと真面目だよね。窓まで磨くの？","아카네 진짜 성실하다. 창문까지 닦아?"],
+   ["아카네","当たり前でしょう。","당연하지."],
+   ["히나","あたしは机だけでいいや。","난 책상만 할래."],
+   ["아카네","ダメ。窓もやって。","안 돼. 창문도 해."],
+   ["히나","やっぱ鬼だ……","역시 귀신이야……"]]},
+ "리오":{sit:"리오가 날씨 예측 또 맞음", L:[
+   ["히나","リオ、お前ほんと天気予報かよ。","리오, 너 진짜 일기예보냐."],
+   ["리오","アプリ見てるだけだし。","앱 보는 것뿐인데."],
+   ["히나","三つもアラーム設定してんでしょ。","세 개나 알림 설정해놨지."],
+   ["리오","……誰から聞いたの。","……누구한테 들었어."]]},
+ "이츠키":{sit:"이츠키가 히나 치어리딩 보고 있음", L:[
+   ["히나","イツキ、見てた？今の振付！","이츠키, 봤어? 지금 안무!"],
+   ["이츠키","…見てた。","…봤어."],
+   ["히나","どうだった！？","어땠어!?"],
+   ["이츠키","…派手。","…화려해."],
+   ["히나","褒めてんの？！","칭찬이야?!"]]},
+ "유이":{sit:"편의점 소등 후 탈출 작전", L:[
+   ["유이","ヒナ、今日のルート左からね。","히나, 오늘 루트 왼쪽으로."],
+   ["히나","了解！あたし先行く！","알겠어! 내가 먼저 갈게!"],
+   ["유이","いや順番守って。","아니 순서 지켜."],
+   ["히나","細かいなー。","꼼꼼하다~"],
+   ["","","결국 둘 다 정문 경비한테 걸림"]]},
+ "미유":{sit:"히나가 요리부실에서 몰래 뭔가 만듦", L:[
+   ["미유","ヒナ、勝手に調理室使わないで。","히나, 맘대로 조리실 쓰지 마."],
+   ["히나","ちょっとだけ！卵焼き作りたくて！","잠깐만! 달걀말이 만들고 싶어서!"],
+   ["미유","……味見させて。","……맛 좀 보여줘."],
+   ["히나","え、意外。うん！","어, 의외다. 응!"]]},
+ "히이라기":{sit:"히이라기가 히나 뒤에 숨어있음", L:[
+   ["히이라기","ヒナちゃん……あの先輩怖い……","히나……저 선배 무서워……"],
+   ["히나","あー？誰。あたしが言ってやろうか。","아? 누구. 내가 한마디 해줄까."],
+   ["히이라기","や、やめてください！余計怖くなります！","그, 그만둬요! 더 무서워져요!"],
+   ["히나","はは！冗談だって。","하하! 농담이라니까."]]},
+ "미즈호":{sit:"미즈호가 고양이 보고 멈춤", L:[
+   ["히나","ミズホ、何固まってんの。","미즈호, 뭐 굳어있어."],
+   ["미즈호","…猫。","…고양이."],
+   ["히나","……お前、猫好きなんだ。","……너, 고양이 좋아하는구나."],
+   ["미즈호","…別に。","…별로."],
+   ["","","미즈호 눈이 고양이에서 안 떨어짐. 히나 웃음 참는 중"]]},
+ "츠바사":{sit:"츠바사가 히나 간식 나눠줌", L:[
+   ["츠바사","ヒナ、これおすそ分け。弟が送ってくれたの。","히나, 이거 나눠줄게. 남동생이 보내줬어."],
+   ["히나","マジ？いいの？","진짜? 괜찮아?"],
+   ["츠바사","うん。一人じゃ食べきれないし。","응. 혼자선 다 못 먹으니까."],
+   ["히나","ツバサの弟、いいやつだな……","츠바사 남동생, 좋은 녀석이다……"]]},
+ "린":{sit:"린이랑 같이 체육관 뒷정리", L:[
+   ["린","ヒナ、こっちのマット重いよ……","히나, 이쪽 매트 무거워……"],
+   ["히나","貸して！あたしが持つから！","빌려줘! 내가 들 테니까!"],
+   ["린","え、一人で？！","어, 혼자서?!"],
+   ["히나","余裕！","여유!"],
+   ["","","들다가 허리 삐끗. 린이 양호실까지 부축해감"]]}
+},
+"이츠키":{
+ "아카네":{sit:"아카네가 이츠키 사진 지워달라고 함", L:[
+   ["아카네","白瀬、あの写真消した？","시라세, 그 사진 지웠어?"],
+   ["이츠키","…どの。","…어떤."],
+   ["아카네","道場で撮ったやつ。","도장에서 찍은 거."],
+   ["이츠키","…消した。","…지웠어."],
+   ["","","백업해둔 건 말 안 함"]]},
+ "리오":{sit:"리오가 이츠키 헤어케어 카탈로그 발견", L:[
+   ["리오","白瀬、またカタログ見てるの？","시라세, 또 카탈로그 보고 있어?"],
+   ["이츠키","…これは資料。","…이건 자료야."],
+   ["리오","何の資料よ。トリートメントの。","무슨 자료야. 트리트먼트."],
+   ["이츠키","…髪は大事。","…머리카락은 중요해."],
+   ["리오","そこだけ饒舌になるの何。","거기서만 말 많아지는 게 뭐야."]]},
+ "히나":{sit:"히나가 이츠키 책 뺏어봄", L:[
+   ["히나","何読んでんのー？","뭐 읽고 있어~?"],
+   ["이츠키","…返して。","…돌려줘."],
+   ["히나","えー見せてよー。","에- 보여줘~"],
+   ["이츠키","…。","이츠키가 조용히 손 뻗음"],
+   ["히나","わかったわかった！怒んないでよ！","알았어 알았어! 화내지 마!"]]},
+ "유이":{sit:"유이가 이츠키 몰래 찍은 사진 발견", L:[
+   ["유이","イツキ、このカメラロール……あたしの写真多くない？","이츠키, 이 카메라 롤……내 사진 많지 않아?"],
+   ["이츠키","…光の具合が良かっただけ。","…빛 상태가 좋았을 뿐이야."],
+   ["유이","全部あたしが写ってるんだけど。","전부 내가 찍혀있는데."],
+   ["이츠키","…偶然。","…우연."]]},
+ "미유":{sit:"미유가 이츠키한테 머플러 두고 감", L:[
+   ["이츠키","…これ、立石の。","…이거, 타테이시 거."],
+   ["미유","寒そうだったから。","추워 보여서."],
+   ["이츠키","…寒くない。","…안 추워."],
+   ["미유","そう。じゃあ返して。","그래. 그럼 돌려줘."],
+   ["이츠키","……あとで。","……나중에."]]},
+ "히이라기":{sit:"히이라기가 이츠키 복슬 옷 소매 만짐", L:[
+   ["히이라기","イツキちゃんのこれ、もこもこでかわいい……","이츠키 이거, 폭신폭신하고 귀여워……"],
+   ["이츠키","…好きにして。","…맘대로 해."],
+   ["히이라기","触っていいの？！","만져도 돼?!"],
+   ["이츠키","…もう触ってるじゃん。","…이미 만지고 있잖아."]]},
+ "미즈호":{sit:"둘이 옥상에서 각자 멍때리는 중", L:[
+   ["","","바람 소리만 5분째"],
+   ["미즈호","…風、気持ちいい。","…바람, 기분 좋다."],
+   ["이츠키","…うん。","…응."],
+   ["","","이게 둘이 나눈 가장 감성적인 대화"]]},
+ "츠바사":{sit:"츠바사가 이츠키 세안밴드 만져봄", L:[
+   ["츠바사","イツキのそのバンド、うさぎ？かわいい。","이츠키 그 밴드, 토끼? 귀엽다."],
+   ["이츠키","…弟がくれた。","…남동생이 줬어."],
+   ["츠바사","え、うちの弟？","어, 우리 남동생?"],
+   ["이츠키","…うん。","…응."],
+   ["츠바사","知らなかった。いつの間に仲良くなったの。","몰랐다. 언제 사이에 친해진 거야."]]},
+ "린":{sit:"린이 이츠키한테 체조 사진 현상본 감사", L:[
+   ["린","イツキ、この前の写真ほんとにありがとう！","이츠키, 저번 사진 정말 고마워!"],
+   ["이츠키","…別に。","…별로."],
+   ["린","額に入れて飾ったよ！","액자에 넣어서 장식했어!"],
+   ["이츠키","…そこまでしなくても。","…거기까지 안 해도."],
+   ["","","이츠키 귀 살짝 빨개짐"]]}
+},
+"유이":{
+ "아카네":{sit:"아카네가 유이 까치집머리 지적", L:[
+   ["아카네","蒼井さん、髪。","아오이, 머리."],
+   ["유이","えー寝癖？またー？","에- 잠꼬대? 또?"],
+   ["아카네","また。직해。","또야. 고쳐."],
+   ["유이","茜が直してよ。","아카네가 고쳐줘."],
+   ["아카네","……自分でやりなさい。","……혼자 해."]]},
+ "리오":{sit:"리오가 유이 라이브 보고 온 뒤", L:[
+   ["유이","リオ、昨日のライブ来てたでしょ。","리오, 어제 라이브 왔었지."],
+   ["리오","……行ってない。","……안 갔어."],
+   ["유이","後ろの方にいたの見えてたんだけど。","뒤쪽에 있었던 거 보였는데."],
+   ["리오","……見間違い。","……착각이야."],
+   ["유이","ふーん。じゃあ次も来てね、見間違いさん。","흥. 그럼 다음에도 와, 착각씨."]]},
+ "히나":{sit:"유이랑 히나 소란 후 반성문", L:[
+   ["유이","ヒナ、反省文何書く？","히나, 반성문 뭐 쓸 거야?"],
+   ["히나","'次からは気をつけます'でいいでしょ。","'다음부터는 조심하겠습니다'면 되잖아."],
+   ["유이","前回もそれ書いたじゃん。","저번에도 그거 썼잖아."],
+   ["히나","……じゃあ何書けばいいのよ。","……그럼 뭘 쓰면 되는데."],
+   ["유이","知らないよ。あたしも同じこと書くし。","몰라. 나도 같은 거 쓸 거니까."]]},
+ "이츠키":{sit:"유이가 이츠키 몰래 웃는 거 목격", L:[
+   ["유이","イツキ、今笑ってたでしょ。","이츠키, 지금 웃었지."],
+   ["이츠키","…笑ってない。","…안 웃었어."],
+   ["유이","本読んで口角上がってたじゃん。","책 읽으면서 입꼬리 올라갔잖아."],
+   ["이츠키","…気のせい。","…기분 탓."],
+   ["유이","かわいいとこあるじゃん。","귀여운 면도 있네."]]},
+ "미유":{sit:"미유가 유이 밤에 우는 거 들음", L:[
+   ["미유","ユイ、昨日の夜……泣いてた？","유이, 어젯밤……울었어?"],
+   ["유이","え？泣いてないよー。","어? 안 울었는데~"],
+   ["미유","壁薄いから。","벽 얇으니까."],
+   ["유이","……風邪で鼻かんだだけだし。","……감기라 코 풀었을 뿐이야."],
+   ["","","미유 더 안 물음. 유이 시선 살짝 피함"]]},
+ "히이라기":{sit:"히이라기가 유이 기타 만지고 싶어함", L:[
+   ["히이라기","ユイさん、ギター触ってみてもいいですか……？","유이, 기타 만져봐도 될까요……?"],
+   ["유이","いいよ。こう持って。","좋아. 이렇게 잡아."],
+   ["히이라기","わ、重い……！","와, 무거워……!"],
+   ["유이","慣れだよ慣れ。","익숙해지면 돼."]]},
+ "미즈호":{sit:"미즈호가 유이 노래 듣고 있었음", L:[
+   ["유이","ミズホ、さっきから後ろにいるよね。","미즈호, 아까부터 뒤에 있지."],
+   ["미즈호","…たまたま。","…우연히."],
+   ["유이","練習聞いてたんでしょ。","연습 듣고 있었지."],
+   ["미즈호","…聞いてない。","…안 들었어."],
+   ["유이","ありがとね。","고마워."]]},
+ "츠바사":{sit:"츠바사가 유이 손 밴드 감아줌", L:[
+   ["츠바사","ユイ、指先また荒れてるよ。クリーム塗る？","유이, 손끝 또 거칠어졌어. 크림 바를래?"],
+   ["유이","えー大丈夫だって。","에- 괜찮다니까."],
+   ["츠바사","大丈夫じゃないよ。ギター弾けなくなったら困るでしょ。","괜찮지 않아. 기타 못 치면 곤란하잖아."],
+   ["유이","……ありがと、お母さん。","……고마워, 엄마."],
+   ["츠바사","お母さんじゃないよ。","엄마 아니야."]]},
+ "린":{sit:"유이가 린 연습 따라가봄", L:[
+   ["유이","リン、体操のフロア見に行っていい？","린, 체조 마루운동 보러 가도 돼?"],
+   ["린","え！来るの？！","어! 올 거야?!"],
+   ["유이","うん。面白そうじゃん。","응. 재밌을 것 같잖아."],
+   ["린","じゃ、じゃあかっこいいとこ見せなきゃ……！","그, 그럼 멋진 모습 보여줘야……!"],
+   ["유이","力みすぎないでよー。","너무 힘주지 마~"]]}
+},
+"미유":{
+ "아카네":{sit:"아카네가 열 있는데 숨기고 있음", L:[
+   ["미유","茜、顔赤いよ。熱あるでしょ。","아카네, 얼굴 빨개. 열 있지."],
+   ["아카네","ない。","없어."],
+   ["미유","おでこ触らせて。","이마 만져봐."],
+   ["아카네","……触らなくていい。","……안 만져도 돼."],
+   ["미유","三十八度はあるよ。保健室。","38도는 넘어. 양호실."]]},
+ "리오":{sit:"리오가 쓰레기 분리수거 안 함", L:[
+   ["미유","葛野、ペットボトルはこっち。","쿠즈노, 페트병은 이쪽."],
+   ["리오","あ……ごめん。","아……미안."],
+   ["미유","大丈夫。慣れてるから。","괜찮아. 익숙하니까."],
+   ["리오","(ミユに怒られると逆に辛い……)","(미유한테 혼나면 오히려 괴로워……)"]]},
+ "히나":{sit:"히나가 미유 숨겨둔 단것 먹는 순서 깨뜨림", L:[
+   ["히나","ミユ、このチョコもらっていい？","미유, 이 초콜릿 먹어도 돼?"],
+   ["미유","……それ順番がある。","……그거 순서가 있어."],
+   ["히나","順番？お菓子に？","순서? 과자에?"],
+   ["미유","……いいから。違うの食べて。","……됐으니까. 다른 거 먹어."]]},
+ "이츠키":{sit:"이츠키가 미유 뒤에서 혼자 자고 있음", L:[
+   ["미유","白瀬、ここで寝たら風邪ひくよ。","시라세, 여기서 자면 감기 걸려."],
+   ["이츠키","…寝てない。","…안 잤어."],
+   ["미유","毛布かけておくから。","담요 덮어둘 테니까."],
+   ["이츠키","…ありがと。","…고마워."]]},
+ "유이":{sit:"유이가 미유 뒤에서 몰래 따라옴", L:[
+   ["미유","ユイ、後ろにいるの気づいてるよ。","유이, 뒤에 있는 거 알고 있어."],
+   ["유이","えー気づいてたんだ。","에- 알고 있었구나."],
+   ["미유","何？","뭐?"],
+   ["유이","べつにー。ミユが一人で全部やるから心配で。","별로~. 미유가 혼자 다 해서 걱정돼서."],
+   ["미유","……心配しなくていい。","……걱정 안 해도 돼."]]},
+ "히이라기":{sit:"히이라기가 미유한테 요리 배우러 옴", L:[
+   ["히이라기","美結さん！卵焼きの焼き方教えてください！","미유! 달걀말이 굽는 법 알려주세요!"],
+   ["미유","いいよ。火加減がポイントね。","좋아. 불 조절이 포인트야."],
+   ["히이라기","はいっ！メモします！","네! 메모할게요!"],
+   ["미유","……真面目だね、榎は。","……성실하네, 에노키는."]]},
+ "미즈호":{sit:"미즈호가 비에 젖어서 돌아옴", L:[
+   ["미유","風間、また濡れて……タオル。","카자마, 또 젖어서……수건."],
+   ["미즈호","…ありがと。","…고마워."],
+   ["미유","傘持ち歩きなよ。","우산 들고 다녀."],
+   ["미즈호","…忘れる。","…잊어버려."],
+   ["미유","……明日からあたしが持たせるから。","……내일부터 내가 챙겨줄 테니까."]]},
+ "츠바사":{sit:"츠바사가 미유 어깨 주무르기", L:[
+   ["츠바사","ミユ、肩こってない？","미유, 어깨 안 뻐근해?"],
+   ["미유","大丈夫。","괜찮아."],
+   ["츠바사","嘘。ここ、硬いよ。少し揉むね。","거짓말. 여기, 딱딱해. 좀 주무를게."],
+   ["미유","……ありがとう。","……고마워."],
+   ["","","미유가 고맙다고 하는 거 드묾. 츠바사만 이끌어냄"]]},
+ "린":{sit:"린이 미유한테 도시락 맛있다고 함", L:[
+   ["린","ミユのお弁当、毎回美味しすぎるんだけど！","미유 도시락, 매번 너무 맛있는데!"],
+   ["미유","そう？普通だよ。","그래? 보통이야."],
+   ["린","普通じゃないって！天才！","보통 아니라고! 천재!"],
+   ["미유","……ありがと。","……고마워."],
+   ["","","미유 귀 살짝 빨개짐. 본인은 모름"]]}
+},
+"히이라기":{
+ "아카네":{sit:"아카네한테 용기내서 말 걸기", L:[
+   ["히이라기","鷺沢さん……お昼一緒に食べませんか？","사기사와……점심 같이 먹지 않을래요?"],
+   ["아카네","……いいわよ。","……좋아."],
+   ["히이라기","え！！いいんですか！！","어!! 괜찮아요!!"],
+   ["아카네","そんなに驚くこと？","그렇게 놀랄 일이야?"]]},
+ "리오":{sit:"리오가 히이라기 댄스 동영상 봄", L:[
+   ["히이라기","葛野さん、それあたしの動画……！","쿠즈노, 그거 제 동영상……!"],
+   ["리오","……たまたま出てきた。","……우연히 떴어."],
+   ["히이라기","ど、どうでしたか！","어, 어땠어요!"],
+   ["리오","……悪くないんじゃない。","……나쁘지 않은 거 아니야."],
+   ["히이라기","(最大級の褒め言葉だ……！)","(최고급 칭찬이야……!)"]]},
+ "히나":{sit:"히나한테 졸려서 기대버림", L:[
+   ["","","히이라기가 자습 시간에 히나 어깨에 기대서 잠듦"],
+   ["히나","……おい、柊。","……야, 히이라기."],
+   ["히이라기","すぅ……","쿨쿨……"],
+   ["히나","……しょうがないな。","……어쩔 수 없네."],
+   ["","","히나 움직이지 않고 그대로 있어줌"]]},
+ "이츠키":{sit:"이츠키한테 고민 상담", L:[
+   ["히이라기","イツキちゃん……あたし、向いてないのかな。","이츠키……나, 안 맞는 걸까."],
+   ["이츠키","…何が。","…뭐가."],
+   ["히이라기","ダンス……また本番で間違えちゃって。","댄스……또 본무대에서 틀려버려서."],
+   ["이츠키","…練習では出来てた。","…연습에선 됐었어."],
+   ["히이라기","え……見てたの？","어……봤어?"],
+   ["이츠키","…たまたま。","…우연히."]]},
+ "유이":{sit:"유이한테 노래 배우고 싶다고 함", L:[
+   ["히이라기","ユイさん！歌教えてくれませんか！","유이! 노래 가르쳐주지 않을래요!"],
+   ["유이","えーいいけど、音痴じゃない？","에- 좋은데, 음치 아니야?"],
+   ["히이라기","うっ……でも頑張ります！","윽……하지만 열심히 할게요!"],
+   ["유이","冗談だって。やろうやろう。","농담이라니까. 하자하자."]]},
+ "미유":{sit:"미유한테 만든 쿠키 줌", L:[
+   ["히이라기","美結さん、これ作ったんですけど……食べてもらえますか？","미유, 이거 만들었는데……먹어줄 수 있을까요?"],
+   ["미유","……形が面白いね。","……모양이 재밌네."],
+   ["히이라기","が、頑張ったんです！","노, 노력했어요!"],
+   ["미유","うん。美味しい。","응. 맛있어."],
+   ["히이라기","ほんとですか！！","진짜예요!!"]]},
+ "미즈호":{sit:"미즈호 옆에서 혼잣말", L:[
+   ["히이라기","今日の給食なんだろ……カレーかな……","오늘 급식 뭘까……카레일까……"],
+   ["미즈호","…カレー。","…카레."],
+   ["히이라기","え！知ってるの！？","어! 알고 있어!?"],
+   ["미즈호","…掲示板に書いてあった。","…게시판에 써있었어."],
+   ["히이라기","ミズホちゃんすごい！","미즈호 대단해!"]]},
+ "츠바사":{sit:"츠바사한테 여동생 대우 받는 중", L:[
+   ["츠바사","柊、寒くない？これ着る？","히이라기, 안 추워? 이거 입을래?"],
+   ["히이라기","だ、大丈夫です！自分で着れます！","괜, 괜찮아요! 혼자 입을 수 있어요!"],
+   ["츠바사","そう？ボタン一個ずれてるけど。","그래? 단추 한 개 어긋나있는데."],
+   ["히이라기","……直してください。","……고쳐주세요."]]},
+ "린":{sit:"린이랑 자습 시간 몰래 과자 나눠먹기", L:[
+   ["린","柊、これ食べる？先生見てないよ。","히이라기, 이거 먹을래? 선생님 안 보고 있어."],
+   ["히이라기","え、いいの？！でも怒られたら……","어, 괜찮아?! 하지만 혼나면……"],
+   ["린","大丈夫大丈夫。はい。","괜찮아 괜찮아. 자."],
+   ["히이라기","……おいしい。","……맛있다."],
+   ["","","선생님 돌아보는 순간 둘 다 입 다물고 정면 봄"]]}
+},
+"미즈호":{
+ "아카네":{sit:"아카네가 미즈호 수영복 차림으로 복도에 있는 거 발견", L:[
+   ["아카네","風間さん、その格好で歩き回らないで。","카자마, 그 차림으로 돌아다니지 마."],
+   ["미즈호","…着替えるの面倒で。","…갈아입기 귀찮아서."],
+   ["아카네","面倒でも着替えなさい。","귀찮아도 갈아입어."],
+   ["미즈호","……。","결국 돌아감"]]},
+ "리오":{sit:"리오가 미즈호한테 첫 긴 문장 들음", L:[
+   ["리오","風間、今日の水泳どうだった。","카자마, 오늘 수영 어땠어."],
+   ["미즈호","…タイム、0.3秒縮まった。ターンの入水角度変えたら抵抗減って、後半のストロークが伸びた。","…타임, 0.3초 줄었어. 턴 입수 각도 바꿨더니 저항 줄어서 후반 스트로크가 늘었어."],
+   ["리오","……今の、この一年で一番長い台詞じゃない？","……지금 거, 올해 들어 제일 긴 대사 아니야?"],
+   ["미즈호","…そう？","…그래?"]]},
+ "히나":{sit:"히나가 미즈호 끌고 노래방 가려 함", L:[
+   ["히나","ミズホ、カラオケ行こ！","미즈호, 노래방 가자!"],
+   ["미즈호","…パス。","…패스."],
+   ["히나","えー一回くらい！","에- 한 번쯤!"],
+   ["미즈호","…歌えない。","…못 불러."],
+   ["히나","聞いてるだけでいいから！","듣고만 있으면 되니까!"]]},
+ "이츠키":{sit:"이츠키랑 같이 고양이 봄", L:[
+   ["미즈호","…。","고양이한테 손 내밈"],
+   ["이츠키","…来た。","…왔다."],
+   ["미즈호","…うん。","…응."],
+   ["","","고양이가 미즈호 무릎에 올라옴. 이츠키가 셔터 누름"]]},
+ "유이":{sit:"유이가 미즈호 잠들어있는 거 발견", L:[
+   ["유이","ミズホ、プールサイドで寝てたでしょ。","미즈호, 풀사이드에서 잤지."],
+   ["미즈호","…寝てない。","…안 잤어."],
+   ["유이","日焼け跡ついてるんだけど。","자국 생겼는데."],
+   ["미즈호","……。","거울 확인함"]]},
+ "미유":{sit:"미유가 미즈호 점심 챙겨줌", L:[
+   ["미유","風間、はい。おにぎり。","카자마, 자. 주먹밥."],
+   ["미즈호","…頼んでない。","…안 부탁했어."],
+   ["미유","知ってる。でも食べて。","알아. 그래도 먹어."],
+   ["미즈호","……。","받아서 먹음"],
+   ["미유","よろしい。","잘했어."]]},
+ "히이라기":{sit:"히이라기가 미즈호 수영 응원", L:[
+   ["히이라기","ミズホちゃん頑張れー！！","미즈호 파이팅!!"],
+   ["미즈호","…うるさい。","…시끄러."],
+   ["히이라기","え、応援しちゃダメ？","어, 응원하면 안 돼?"],
+   ["미즈호","……ダメとは言ってない。","……안 된다곤 안 했어."]]},
+ "츠바사":{sit:"츠바사가 미즈호한테 핫초코 줌", L:[
+   ["츠바사","ミズホ、温かいの飲む？","미즈호, 따뜻한 거 마실래?"],
+   ["미즈호","…炭酸がいい。","…탄산이 좋아."],
+   ["츠바사","冬に炭酸はダメ。はい。","겨울에 탄산은 안 돼. 자."],
+   ["미즈호","……。","받아서 마심"],
+   ["","","거부 안 한 건 츠바사니까"]]},
+ "린":{sit:"린이 미즈호한테 수영 가르쳐달라고 함", L:[
+   ["린","ミズホ、泳ぎ方教えて！","미즈호, 수영법 가르쳐줘!"],
+   ["미즈호","…なんで。","…왜."],
+   ["린","かっこよく泳ぎたくて！","멋지게 수영하고 싶어서!"],
+   ["미즈호","……日曜、空いてる。","……일요일, 비어있어."],
+   ["린","えっ！いいの！？","엣! 괜찮아!?"]]}
+},
+"츠바사":{
+ "아카네":{sit:"아카네가 츠바사한테만 약한 모습 보임", L:[
+   ["아카네","……翼。今日、少し疲れた。","……츠바사. 오늘, 좀 피곤해."],
+   ["츠바사","珍しいね。じゃあ隣座ろうか。","드물다. 그럼 옆에 앉을까."],
+   ["아카네","……別にそこまでは。","……별로 거기까진."],
+   ["츠바사","もう座ってるよ。","이미 앉았어."],
+   ["","","아카네 말 없이 옆에 있음"]]},
+ "리오":{sit:"리오가 누군가한테 메모 남기고 간 걸 츠바사가 봄", L:[
+   ["츠바사","リオ、今の……誰かにメモ置いた？","리오, 지금……누구한테 메모 놓았어?"],
+   ["리오","……見てたの。","……봤어?"],
+   ["츠바사","うん。優しいね。","응. 착하다."],
+   ["리오","……うるさい。","……시끄러."]]},
+ "히나":{sit:"히나가 츠바사 남동생 선물 고르는 거 도와줌", L:[
+   ["히나","ツバサ、弟に何あげんの？","츠바사, 남동생한테 뭐 줄 거야?"],
+   ["츠바사","うーん、悩んでて。","음, 고민 중이야."],
+   ["히나","男子ならゲームじゃない？","남자면 게임 아니야?"],
+   ["츠바사","そういうの全然わからない……","그런 거 전혀 모르겠어……"],
+   ["히나","よし、あたしが選んでやる！","좋아, 내가 골라줄게!"]]},
+ "이츠키":{sit:"이츠키가 츠바사 수예 작품 봄", L:[
+   ["이츠키","…これ、翼が作ったの。","…이거, 츠바사가 만든 거야."],
+   ["츠바사","うん。どう？","응. 어때?"],
+   ["이츠키","…すごい。","…대단해."],
+   ["츠바사","え、イツキがそこまで言うの珍しい。","어, 이츠키가 거기까지 말하는 건 드물다."],
+   ["이츠키","…別に。普通に思っただけ。","…별로. 보통으로 생각했을 뿐이야."]]},
+ "유이":{sit:"유이가 츠바사 화난 거 처음 봄", L:[
+   ["유이","ツバサ……今、怒ってる？","츠바사……지금, 화났어?"],
+   ["츠바사","怒ってないよ。","안 화났어."],
+   ["유이","声のトーン変わってるんだけど。","목소리 톤 바뀌었는데."],
+   ["츠바사","……ちょっとだけ。","……조금만."],
+   ["유이","(ツバサが怒ると逆に怖い……)","(츠바사가 화내면 오히려 무서워……)"]]},
+ "미유":{sit:"미유가 쓰러질 것 같을 때 츠바사가 캐치", L:[
+   ["츠바사","ミユ！","미유!"],
+   ["미유","……大丈夫。ちょっとふらついただけ。","……괜찮아. 좀 어질했을 뿐이야."],
+   ["츠바사","大丈夫じゃないよ。座って。水飲んで。","괜찮지 않아. 앉아. 물 마셔."],
+   ["미유","……ごめん。","……미안."],
+   ["츠바사","謝らないで。頼って。","사과하지 마. 기대."]]},
+ "히이라기":{sit:"히이라기가 츠바사 앞에서 넘어짐", L:[
+   ["히이라기","きゃっ！","꺅!"],
+   ["츠바사","大丈夫？怪我してない？","괜찮아? 다치진 않았어?"],
+   ["히이라기","だ、大丈夫です……恥ずかしい……","괜, 괜찮아요……창피해……"],
+   ["츠바사","恥ずかしくないよ。はい、立って。","창피하지 않아. 자, 일어나."]]},
+ "미즈호":{sit:"미즈호가 츠바사 옆에서 잠듦", L:[
+   ["","","미즈호가 츠바사 옆에서 잠들어있음"],
+   ["츠바사","……寝ちゃった。","……잠들었네."],
+   ["","","츠바사가 자기 카디건 덮어줌"],
+   ["미즈호","…ん。","…응."],
+   ["","","미즈호 일어나서도 카디건 돌려주는 거 한참 걸림"]]},
+ "린":{sit:"린이 츠바사한테 남동생 얘기 더 듣고 싶어함", L:[
+   ["린","ツバサ、弟くん最近どう？","츠바사, 남동생 요즘 어때?"],
+   ["츠바사","相変わらず生意気。でも元気だよ。","여전히 건방져. 근데 건강해."],
+   ["린","いいな、兄弟いるの。","좋겠다, 형제 있는 거."],
+   ["츠바사","凛は一人っ子？","린은 외동이야?"],
+   ["린","うん。だからツバサの話聞くの好き。","응. 그래서 츠바사 얘기 듣는 거 좋아."]]},
+},
+"린":{
+ "아카네":{sit:"아카네가 린 체조 시합 결과 물어봄", L:[
+   ["아카네","穂積さん、今日の結果は。","호즈미, 오늘 결과는."],
+   ["린","さ、三位でした！","삼, 3위였어요!"],
+   ["아카네","……よく頑張ったわね。","……잘 했네."],
+   ["린","(鷺沢さんに褒められた……！！)","(사기사와한테 칭찬받았다……!!)"]]},
+ "리오":{sit:"리오가 린 멘탈 케어해줌", L:[
+   ["린","リオ……あたし本番に弱いのかな。","리오……나 본무대에 약한 걸까."],
+   ["리오","……練習で出来てるなら問題ないでしょ。","……연습에서 됐으면 문제없잖아."],
+   ["린","でも……","하지만……"],
+   ["리오","でもじゃないの。自信持ちなよ。……あたしが言うのもアレだけど。","하지만이 아니야. 자신감 가져. ……내가 말하는 것도 그렇지만."]]},
+ "히나":{sit:"히나랑 같이 몰래 편의점 습격", L:[
+   ["린","ヒナ、声大きいって！バレるよ！","히나, 목소리 커! 들켜!"],
+   ["히나","平気平気！あたしに任せて！","괜찮아 괜찮아! 나한테 맡겨!"],
+   ["린","前もそう言って捕まったじゃん！","저번에도 그렇게 말하고 잡혔잖아!"],
+   ["히나","今回は違う！","이번엔 달라!"],
+   ["","","결국 또 잡힘"]]},
+ "이츠키":{sit:"이츠키한테 고양이 사진 보여줌", L:[
+   ["린","イツキ、この猫見て！","이츠키, 이 고양이 봐!"],
+   ["이츠키","…かわいい。","…귀여워."],
+   ["린","でしょ！！","그치!!"],
+   ["이츠키","…でも写真の構図が惜しい。","…근데 사진 구도가 아쉬워."],
+   ["린","そこ！？","거기!?"]]},
+ "유이":{sit:"유이가 린 연애 얘기로 놀림", L:[
+   ["유이","リンってさー、好きな人いるでしょ。","린 말이야~, 좋아하는 사람 있지."],
+   ["린","いないっ！！","없어!!"],
+   ["유이","顔がもう答え言ってるんだけど。","얼굴이 이미 답 말하고 있는데."],
+   ["린","ユイ！！やめて！！","유이!! 그만해!!"]]},
+ "미유":{sit:"미유가 린 울 것 같을 때", L:[
+   ["린","ミユ……ごめん、ちょっと泣きそう。","미유……미안, 좀 울 것 같아."],
+   ["미유","いいよ。泣きなよ。","괜찮아. 울어."],
+   ["린","……うう。","……으으."],
+   ["미유","誰にも言わないから。","아무한테도 말 안 할 테니까."],
+   ["","","미유가 린 등 가볍게 두드려줌"]]},
+ "히이라기":{sit:"히이라기랑 같이 기숙사에서 심야 영상 봄", L:[
+   ["린","柊、これ見て。赤ちゃんパンダ！","히이라기, 이거 봐. 아기 판다!"],
+   ["히이라기","やばい！！かわいすぎる！！","대박!! 너무 귀여워!!"],
+   ["린","しーっ！消灯過ぎてるから！","쉿! 소등 지났으니까!"],
+   ["히이라기","(小声)かわいい……","(작은 목소리)귀여워……"]]},
+ "미즈호":{sit:"미즈호가 린한테 탄산 나눠줌", L:[
+   ["미즈호","…これ。","…이거."],
+   ["린","え、くれるの？","어, 줄 거야?"],
+   ["미즈호","…余った。","…남아서."],
+   ["린","ありがとう！ミズホって意外と優しいよね。","고마워! 미즈호 의외로 착하다."],
+   ["미즈호","…意外とって何。","…의외로가 뭐야."]]},
+ "츠바사":{sit:"츠바사가 린 시합 전 머리 묶어줌", L:[
+   ["츠바사","凛、結んであげるね。きつくない？","린, 묶어줄게. 안 조여?"],
+   ["린","ちょうどいい……ありがとう、ツバサ。","딱 좋아……고마워, 츠바사."],
+   ["츠바사","頑張ってね。見てるから。","힘내. 보고 있을 테니까."],
+   ["린","……うん！","……응!"],
+   ["","","린 기숙사 돌아와서 그 머리끈 소중하게 보관함"]]}
+}
+};
+
+// ===== 관계 플레이버 (원본 프롬프트 "관계" 섹션 기반, 일부 쌍) =====
+const RELATION_NOTE = {};
+function setRel(a,b,text){ RELATION_NOTE[a+'|'+b] = text; RELATION_NOTE[b+'|'+a] = text; }
+setRel('아카네','리오','원칙과 예측으로 매번 부딪히지만 위기 땐 같은 편. 매일 티격태격해도 서로 없으면 허전한 사이인 듯하다.');
+setRel('히나','유이','세이란학원 공인 민폐 듀오. 즉흥과 텐션이 만나면 사고가 두 배. 그래도 한쪽이 힘들 때 다른 쪽이 먼저 눈치채는 걸 몇 번 봤다.');
+setRel('미유','아카네','있으면 반에 별일 없을 것 같은 안정감을 주는 조합. 말 안 해도 서로 일 처리를 믿고 맡기는 듯.');
+setRel('미즈호','이츠키','둘 다 말이 없는데 같이 있으면 편해 보인다. 무슨 얘기를 하는지는 나도 모른다.');
+setRel('히나','히이라기','장난과 직설에 히이라기가 자주 당황하지만, 진짜 곤란할 땐 히나가 제일 먼저 달려온다.');
+setRel('이츠키','히이라기','히이라기가 유일하게 속내를 터놓는 상대인 것 같다. 이츠키는 짧게 반응해도 끝까지 들어준다.');
+setRel('미즈호','히이라기','히이라기가 졸졸 따라다녀도 미즈호는 막지 않는다. 늘 히이라기 혼자 말하고 미즈호는 듣는 구도.');
+setRel('츠바사','아카네','아카네가 유일하게 경계를 푸는 상대. 본인은 자각 못 하는 것 같지만 츠바사 앞에서만 말이 많아진다.');
+setRel('유이','리오','장난에 매번 걸려들면서도 서로 없으면 심심해하는 것 같다.');
+setRel('리오','미즈호','말 걸어도 단답만 돌아오는데, 오히려 더 자주 말을 거는 걸 보면 신기하다.');
+setRel('유이','린','린의 어색한 순간을 포착해 놀리는 역할. 린도 그게 친밀감 표현인 걸 아는 눈치다.');
+setRel('미유','히나','히나가 사고 치면 미유가 수습. 히나가 미유한테만 진심으로 미안해하는 걸 여러 번 봤다.');
+
+const REMARK_POOL = [
+  '오늘도 평범한 하루였지만, 저 둘을 보면 왠지 웃음이 난다.',
+  '별거 아닌 대화 같아도 계속 눈이 갔다.',
+  '관찰노트에 한 줄 더 추가. 이 둘은 볼 때마다 새롭다.',
+  '무심코 지나칠 뻔한 장면인데 오래 눈이 갔다.',
+  '이 학교엔 흥미로운 조합이 참 많다.',
+  '적어두지 않으면 잊어버릴 것 같아서 기록해둔다.'
+];
+function remarkFor(a,b){
+  const key = a+'|'+b;
+  if(RELATION_NOTE[key]) return RELATION_NOTE[key];
+  let h=0; for(const ch of (a+b)){ h += ch.charCodeAt(0); }
+  return REMARK_POOL[h % REMARK_POOL.length];
+}
+const DATE_POOL = ['4월 12일','4월 27일','5월 9일','5월 30일','6월 14일','6월 25일','7월 3일','9월 8일','9월 21일','10월 2일','10월 19일','11월 5일'];
+const WEATHER_POOL = ['맑음','약간 흐림','흐림','비','소나기','벚꽃 날림','더위','단풍'];
+function dateFor(idx){ return DATE_POOL[idx % DATE_POOL.length]; }
+function weatherFor(idx){ return WEATHER_POOL[(idx*3) % WEATHER_POOL.length]; }
+
+// ===== 배경 코드 매칭 (상황 텍스트 키워드 기반) =====
+const BG_MAP = [
+  [/식당|밥|반찬|카레/, 'bg6'],
+  [/수영장|수영|풀/, 'bg7'],
+  [/도장|연습.*검도|검도.*연습/, 'bg4'],
+  [/방송실|음악실|경음악|합주/, 'bg5'],
+  [/편의점/, 'bg8'],
+  [/조회|운동장|순찰/, 'bg3'],
+  [/기숙사|복도|소등|자판기/, 'bg2'],
+  [/옥상/, 'bg9'],
+  [/등교|아침.*걸으며|아침.*마주/, 'bg10'],
+  [/교실|수업|책상/, 'bg1']
+];
+function pickBg(sit){ for(const [re,code] of BG_MAP){ if(re.test(sit)) return code; } return 'bg1'; }
+function bgSrc(code){ return `https://raw.githubusercontent.com/snowbls/kk/main/${code}.png`; }
+
+// ===== 관계 씬 허브 (선택 + 클릭으로 대사 진행 + 종료시 전체 다시보기) =====
+const vnWrap = document.getElementById('vn-wrap');
+let vn = {a:null, b:null, idx:0, scn:1};
+
+function vnTileHTML(ch){
+  const isA = vn.a === ch.short;
+  const isB = vn.b === ch.short;
+  let cls = 'vn-pick';
+  if(isA) cls += ' is-a';
+  if(isB) cls += ' is-b';
+  const ribbonInner = `<div class="nm">${ch.short}</div><div class="cl">${ch.club}</div>`;
+  let badge = '';
+  if(isA) badge = `<div class="badge">SELECT</div>`;
+  else if(isB) badge = `<div class="badge">SCENE</div>`;
+  return `<div class="${cls}" style="--chip-color:${ch.color}" onclick="vnClickTile('${ch.short}')">
+    ${badge}
+    <div class="ph"><img src="${photoSrc(ch)}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"><div class="fallback" style="display:none">${ch.short}</div></div>
+    <div class="ribbon">${ribbonInner}</div>
+  </div>`;
+}
+function vnClickTile(short){
+  if(!vn.a){ vn.a = short; vn.b=null; vn.idx=0; vn.scn=1; vnRender(); return; }
+  if(vn.a === short){ vn.a=null; vn.b=null; vnRender(); return; }
+  vn.b = short; vn.idx = 0; vn.scn=1; vnRender();
+  const anchor = document.getElementById('vn-scene-anchor');
+  if(anchor) anchor.scrollIntoView({behavior:'smooth', block:'start'});
+}
+function vnReset(){ vn = {a:null,b:null,idx:0,scn:1}; vnRender(); }
+function vnOtherPartner(){ vn.b=null; vn.scn=1; vnRender(); }
+function vnSetScn(n){ vn.scn=n; vn.idx=0; vnRender(); }
+
+function vnRender(){
+  let html = `<div class="vn-title">CHARACTER SELECT</div>`;
+  if(!vn.a){ html += `<div class="vn-hint">인물 두 명을 순서대로 선택하세요.</div>`; }
+  else if(!vn.b){ html += `<div class="vn-hint"><b>${vn.a}</b> 선택됨 · 상대를 고르세요 <button onclick="vnReset()">처음으로</button></div>`; }
+  else { html += `<div class="vn-hint"><b>${vn.a} → ${vn.b}</b> 씬 <button onclick="vnReset()">처음으로</button></div>`; }
+
+  html += `<div class="vn-hub-grid">`;
+  characters.forEach(ch=>{ html += vnTileHTML(ch); });
+  html += `</div>`;
+
+  if(vn.a && vn.b){ html += `<div id="vn-scene-anchor"></div>` + vnSceneHTML(); }
+  vnWrap.innerHTML = html;
+}
+
+function vnSceneHTML(){
+  const chA = charByShort(vn.a), chB = charByShort(vn.b);
+  const scenBank = vn.scn===1 ? SCEN : SCEN2;
+  const scen = scenBank[vn.a] && scenBank[vn.a][vn.b];
+  const hasS1 = SCEN[vn.a] && SCEN[vn.a][vn.b];
+  const hasS2 = SCEN2[vn.a] && SCEN2[vn.a][vn.b];
+  if(!scen){ return `<div class="vn-hint">해당 조합의 시나리오가 아직 없습니다.</div>`; }
+  const total = scen.L.length;
+  const bg = bgSrc(pickBg(scen.sit));
+  const ended = vn.idx >= total;
+  const dispIdx = Math.min(vn.idx, total-1);
+
+  let scnToggle = '';
+  if(hasS1 && hasS2){
+    scnToggle = `<div style="display:flex;gap:8px;margin-bottom:10px;">
+      <button class="vn-btn" style="${vn.scn===1?'background:var(--accent);color:#fff;':''}" onclick="vnSetScn(1)">씬 1</button>
+      <button class="vn-btn" style="${vn.scn===2?'background:var(--accent);color:#fff;':''}" onclick="vnSetScn(2)">씬 2</button></div>`;
+  }
+
+  const line = scen.L[dispIdx];
+  const speaker = line[0];
+  const isNote = speaker === "";
+  const speakerIsA = speaker === vn.a;
+  const speakerIsB = speaker === vn.b;
+  let box = '';
+  if(!isNote){ box += `<span class="vn-speaker">${speaker}</span>`; }
+  box += isNote ? `<div class="vn-note">${line[2]}</div>` : `<div class="vn-jp">${line[1]}</div><div class="vn-kr">${line[2]}</div>`;
+
+  let stageHTML = scnToggle + `
+    <div class="vn-situation-banner">
+      <span class="label">상황 SITUATION</span>
+      <div class="sit">${scen.sit}</div>
+    </div>
+    <div class="vn-stage">
+      <button class="vn-close" onclick="vnOtherPartner()">✕ 닫기</button>
+      <div class="vn-bg-layer" style="background-image:url('${bg}')"><div class="fallback-bg">星蘭学院</div></div>
+      <div class="vn-bg-shade"></div>
+      <div class="vn-progress">${dispIdx+1} / ${total}</div>
+      <div class="vn-portrait left ${isNote?'':(speakerIsA?'active':'dim')}">
+        <img src="${photoSrc(chA)}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"><div class="fallback" style="display:none">${chA.short}</div>
+      </div>
+      <div class="vn-portrait right ${isNote?'':(speakerIsB?'active':'dim')}">
+        <img src="${photoSrc(chB)}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"><div class="fallback" style="display:none">${chB.short}</div>
+      </div>
+    </div>
+    <div class="vn-textbox" onclick="${ended?'':'vnNext()'}">${box}<div class="vn-next">${ended?'':'▶'}</div></div>`;
+
+  if(!ended) return stageHTML;
+
+  // 씬 종료 - 대사창 아래에 전체 대사 이어붙이기
+  let logHTML = '';
+  scen.L.forEach(line=>{
+    const speaker = line[0];
+    if(speaker===''){ logHTML += `<div class="vn-log-note">— ${line[2]}</div>`; }
+    else { logHTML += `<div class="vn-log-line"><span class="who">${speaker}</span><div class="jp">${line[1]}</div><div class="kr">${line[2]}</div></div>`; }
+  });
+  stageHTML += `
+    <div class="vn-end">
+      <div class="vn-end-head">씬 종료 · 다시보기</div>
+      <div class="vn-fulllog-head">FULL LOG · 상황: ${scen.sit}</div>
+      <div class="vn-log">${logHTML}</div>
+      <div class="vn-controls">
+        <button class="vn-btn" onclick="vn.idx=0; vnRender();">◂ 처음부터 다시</button>
+        <button class="vn-btn" onclick="vnOtherPartner()">${vn.a}의 다른 상대 보기</button>
+        <button class="vn-btn" onclick="vnReset()">처음으로</button>
+      </div>
+    </div>`;
+  return stageHTML;
+}
+function vnNext(){
+  const scenBank = vn.scn===1 ? SCEN : SCEN2;
+  const scen = scenBank[vn.a][vn.b];
+  if(vn.idx < scen.L.length){ vn.idx++; vnRender(); }
+}
+
+// ===== 관찰일지 (플레이 로그 발췌) =====
+const LOG_DATA = [
+{title:'짧은 자기소개 — 술렁이는 교실', entries:[
+  [
+    ['user','"유저다." 간단하게 자기소개를 하며'],
+    ['narr','교실 전체가 2초 정도 조용해졌다. 성만 던지고 끝난 자기소개에 누군가가 "짧아..."하고 킥 웃었고, 그 웃음이 도미노처럼 여기저기서 터져 나왔다. 앞줄 창가 쪽에서 손거울을 급히 집어넣는 소리, 뒷줄에서 옆구리를 쿡쿡 찌르며 고개를 기울이는 동작들이 물결처럼 번졌다.'],
+    ['line','하야시 히나','え…ちょっと待って、背、でっか！','어...잠깐, 키 커!'],
+    ['narr','일어선 채로 유저의 키를 올려다보며 입을 벌렸다. 본인도 188인데 눈높이가 올라가는 감각이 낯선 듯, 무의식적으로 까치발을 들었다가 옆자리에게 교복 뒷자락을 잡혀 도로 앉았다.'],
+    ['line','쿠즈노 리오','...それだけ？','...그것만?'],
+    ['narr','창에 비친 시선을 거두지 않은 채 턱을 살짝 들었다. 팔짱 낀 손가락 끝이 소매를 꾹 누르고 있었다.'],
+    ['line','아오이 유이','そうなんだ、了解。よろしくー。','그렇구나, 알겠어. 잘 부탁해.'],
+    ['narr','턱을 괸 자세 그대로 손을 한 번 흔들었다. 목소리가 교실 술렁임 사이로 가볍게 떨어졌고, 주변 시선이 잠깐 유이 쪽을 스쳤다가 다시 유저에게로 돌아갔다.'],
+    ['narr','뒷줄에서 "ねえ穂積、顔見た？"(야 호즈미, 얼굴 봤어?) 하는 속삭임이 들렸다. 책상 아래에 웅크린 린의 어깨를 친구 둘이 양쪽에서 잡아 올리려 했지만, 린은 고개를 더 깊이 숙인 채 귀까지 새빨갛게 물들어 있었다.'],
+    ['narr','창가 세 번째 줄. 아카네의 등이 미세하게 곧아졌다. 펜을 쥔 손에 힘이 살짝 들어갔다가 풀렸고, 시선은 교탁 정면을 향한 채 미동도 없었다. 담임이 빈자리를 가리키며 뭔가 말했지만, 교실 웅성거림에 반쯤 묻혔다.'],
+    ['line','담임','じゃあ、そこの空いてる席に。','그럼, 저기 빈 자리에.'],
+    ['narr','가리킨 곳은 교실 한가운데, 히나 뒷줄이었다. 주변 자리에서 동시에 자세를 고치는 소리가 났다.']
+  ]]},
+{title:'앞머리 정돈 — 얼어붙은 옆자리', entries:[
+  [
+    ['user','호즈미의 옆자리에 앉으며 망가진 호즈미의 앞머리를 정돈해준다'],
+    ['narr','린의 옆자리. 의자를 빼는 소리가 나자마자 책상 아래에 웅크려 있던 린의 어깨가 딱 굳었다. 친구 하나가 등을 떠밀어 겨우 상체를 일으킨 참이었는데, 흐트러진 앞머리 사이로 시야가 트이기도 전에 손끝이 이마에 닿았다.'],
+    ['narr','숨이 멈췄다. 린의 눈동자가 크게 떠졌고, 입술이 벌어졌다 닫혔다를 세 번 반복했다. 유저의 손가락이 엉킨 머리카락을 옆으로 쓸어주는 동안, 린의 얼굴은 귀부터 목까지 단풍처럼 물들어갔다. 양손이 무릎 위에서 교복 치마를 꽉 움켜쥐었고, 시선은 유저의 쇄골 근처에서 더 위로 올라가지 못했다.'],
+    ['line','호즈미 린','あ、あのっ…は、はな…で…','저, 저기...하, 하나...자...'],
+    ['narr','말이 반도 안 나왔다. 뒤에서 "穂積ーっ、顔！顔やばい！"(호즈미, 얼굴! 얼굴 대박!) 하는 킥킥거림이 터졌고, 린은 양손으로 볼을 감싸쥔 채 고개를 책상 위로 엎어버렸다. 어깨가 잔뜩 올라간 채 미세하게 떨리고 있었다.'],
+    ['line','하야시 히나','えっ、今なにした！？触った！？','엇, 지금 뭐 한 거!? 만졌어!?'],
+    ['narr','앞줄에서 몸을 180도 돌려 의자 등받이를 두 손으로 잡고 유저와 린을 번갈아 쳐다봤다. 목소리를 죽이려는 시도조차 없었고, 주변 세 줄이 동시에 고개를 돌렸다.'],
+    ['line','아오이 유이','初日から攻めるねぇ。','첫날부터 적극적이네.'],
+    ['narr','턱을 괸 채 느긋하게 웃으며 손가락으로 볼을 톡톡 두드렸다. 시선이 린의 빨간 귀 끝을 스쳤다가 유저에게로 돌아갔다.'],
+    ['narr','교실 한가운데가 동물원이 되어가는 동안, 창가 세 번째 줄에서 아카네의 펜촉이 노트 위에 점 하나를 깊게 찍었다. 고개는 정면을 향한 채였고, 표정에는 아무것도 읽히지 않았다. 다만 펜을 쥔 손등에 힘줄이 한 줄 떠올랐다가, 담임이 "はい静かに"(자, 조용히) 하고 손뼉을 치자 천천히 힘이 풀렸다.']
+  ]]},
+{title:'기숙사 배정 발표 — 3층이잖아', entries:[
+  [
+    ['user','수업이 끝난뒤 기숙사 배정 발표 시간'],
+    ['narr','5교시가 끝나자마자 기숙사동 1층 게시판 앞에 학생들이 몰려들었다. 새 학기 방 배정표가 붙은 것이다. A4 용지 네 장 분량의 명단 앞에서 손가락으로 자기 이름을 짚어가는 학생들 사이로 웅성거림이 커졌다. "3층이다" "누구랑 같은 층?" 하는 소리가 뒤엉키는 와중에, 누군가가 명단 한 곳을 톡 두드리며 "3階じゃん"(3층이잖아) 하고 내뱉었다. 그 한마디에 주변 시선이 일제히 유저에게로 쏠렸다.'],
+    ['line','하야시 히나','うっそ、同じ階！？3階って私らもだよね！？','거짓말, 같은 층!? 3층이면 우리도 맞지!?'],
+    ['narr','히나가 인파를 헤치고 게시판 앞으로 밀고 들어오며 명단을 손가락으로 훑었다. 뒤에서 밀린 학생 둘이 비명을 질렀지만 신경도 쓰지 않았다. 자기 이름과 유저의 이름이 같은 층에 적혀 있는 걸 확인하자, 고개를 확 돌려 뒤쪽에 서 있던 친구들을 향해 두 팔을 벌렸다.'],
+    ['line','쿠즈노 리오','...男子部屋、一つだけ？他の設備とか大丈夫なの。','...남자 방, 하나뿐이야? 다른 시설 같은 건 괜찮은 거야.'],
+    ['narr','팔짱을 낀 채 명단을 올려다보며 미간을 좁혔다. 배정표 어디에도 남학생 전용 시설에 대한 표기는 없었고, 화장실 안내란에는 여성용 한 줄만 적혀 있었다. 리오의 손가락이 소매 끝을 꾹 눌렀다.'],
+    ['line','아오이 유이','あはは、まあなんとかなるっしょ。隣近所よろしくね。','아하하, 뭐 어떻게든 되겠지. 이웃사촌 잘 부탁해.'],
+    ['narr','유이가 게시판 옆 벽에 기대선 채 손을 흔들었다. 3층 배정 멤버를 훑어보며 입꼬리가 올라갔다.'],
+    ['narr','그 뒤쪽, 린이 친구 둘의 어깨 뒤에 완전히 숨은 채 명단을 힐끔 올려다보고 있었다. 같은 층이라는 사실을 확인한 순간 목까지 빨개진 채 친구의 등에 이마를 박았고, 양옆에서 "穂積もう耐えらんないでしょ"(호즈미 이제 못 버티겠지) 하는 낄낄거림이 터졌다. 린의 입에서 소리 없는 비명 같은 것이 새어 나왔다.'],
+    ['narr','아카네가 인파 뒤쪽에서 명단을 확인하고 돌아섰다. 표정에는 아무 변화도 없었지만, 복도를 걸어가는 발걸음이 평소보다 반 박자 빨랐다.']
+  ]]},
+{title:'중얼거림 사고 — 복도의 반성 통보', entries:[
+  [
+    ['user','"가슴.. 최고야" 중얼거리며'],
+    ['narr','복도에 내몰린 유저의 중얼거림은 작았지만, 방금 문을 닫고 아직 손잡이를 잡고 있던 아카네의 귀에 정확히 닿았다.'],
+    ['narr','아카네의 손이 문손잡이 위에서 멈췄다. 어깨가 한 번 떨렸고, 천천히 고개가 돌아갔다.'],
+    ['line','사기사와 아카네','...今、なんて言いました？','...지금, 뭐라고 했어요?'],
+    ['narr','목소리가 평소보다 한 톤 낮아져 있었다. 블라우스 앞섶을 여전히 한 손으로 움켜쥔 채, 회색 눈이 유저를 정면으로 꿰뚫었다. 입꼬리 하나 움직이지 않는 얼굴이 오히려 더 무서웠다.'],
+    ['narr','교실 안에서 문 너머로 유이의 목소리가 터졌다.'],
+    ['line','아오이 유이','聞こえたんだけど！？マジで最低じゃん！！','들렸거든!? 진짜 최악이잖아!!'],
+    ['narr','문이 다시 벌컥 열렸다. 유이가 블라우스를 간신히 걸친 채 복도로 반쯤 몸을 내밀었고, 손에 들린 실내화가 유저의 이마를 정확히 맞혔다. 뒤에서 히나가 유이의 어깨를 잡아 끌어당기며 소리쳤다.'],
+    ['line','하야시 히나','おい待て！出たら意味ないだろ！！','야 잠깐! 나가면 의미 없잖아!!'],
+    ['narr','히나의 얼굴은 여전히 귀끝까지 붉었고, 체육복 하나만 간신히 걸친 채 유이를 교실 안으로 끌어들이려 안간힘을 쓰고 있었다.'],
+    ['narr','아카네가 한 발짝 앞으로 나왔다. 유저와의 거리가 좁혀졌고, 올려다볼 필요 없는 시선이 정면에서 내려꽂혔다.'],
+    ['line','사기사와 아카네','反省の色が見えないようですが。明日の朝礼で先生に報告します。','반성의 기색이 안 보이는데요. 내일 아침 조례에서 선생님께 보고하겠습니다.'],
+    ['narr','차갑게 말을 끊고 문 안으로 들어가며, 마지막으로 복도 쪽을 한 번 더 돌아봤다. 표정이 전혀 풀리지 않은 채.']
+  ]]},
+{title:'다들 옷 갈아입는거야? — 난입 소동', entries:[
+  [
+    ['user','"이야! 다들 옷갈아입는거야?" 같이 훌렁 옷을 갈아입으려 한다.'],
+    ['narr','복도로 밀려난 지 채 3초도 안 되어 유저의 목소리가 문 너머로 울려왔다. 교실 안에서 단추를 잠그던 손이 일제히 멈췄다.'],
+    ['line','아오이 유이','は？何言ってんの今？！','하? 지금 뭐라는 거야?!'],
+    ['narr','블라우스를 완전히 여민 채 뒷문 쪽으로 성큼 다가갔다. 문을 잡은 손에 힘이 들어가 손가락 끝이 하얗게 질렸고, 뒷문 잠금장치를 딸깍 돌려 잠갔다. 문짝 너머를 향해 발을 한 번 쾅 굴렀다.'],
+    ['line','아오이 유이','着替え終わるまで絶対入ってくんな！聞こえた？！','갈아입기 끝날 때까지 절대 들어오지 마! 들렸어?!'],
+    ['narr','아카네는 이미 교복 상의까지 정돈을 마친 상태였다. 넥타이를 매만지던 손이 멈추더니, 뒷문을 향해 천천히 고개를 돌렸다. 눈매가 평소보다 한층 좁아져 있었다.'],
+    ['line','사기사와 아카네','…本気で言ってるなら、後で話がある。','...진심으로 하는 말이라면, 나중에 할 얘기가 있어요.'],
+    ['narr','낮고 또렷한 목소리가 소란 사이를 꿰뚫듯 울렸다. 주변 학생 몇 명이 그 톤에 등줄기를 세웠다.'],
+    ['line','하야시 히나','ちょっ…マジで何？！あいつ今なんて言った？！','잠깐...진짜 뭐야?! 저 녀석 지금 뭐라고 했어?!'],
+    ['narr','히나는 아직 체육복 바지 위에 치마만 겨우 걸친 상태로, 블라우스를 가슴팍에 꾹 누른 채 소리를 질렀다. 귀끝이 여전히 새빨간 채였고, 옆에 있던 미유의 팔을 붙잡고 흔들었다.'],
+    ['line','타테이시 미유','…落ち着いて。鍵かけたから。','...진정해. 잠갔으니까.'],
+    ['narr','미유가 히나의 어깨를 두 손으로 잡아 고정시키며 차분하게 말했지만, 본인도 넥타이를 반대쪽 어깨에 걸쳐놓은 것을 아직 인지하지 못한 채였다.'],
+    ['line','에노키 히이라기','え、えっと…一緒に着替えるって、そういう意味…？','어, 어...같이 갈아입는다는 게, 그런 의미...?'],
+    ['narr','히이라기가 교복 위에 체육복을 겹쳐 입은 엉뚱한 상태로 고개를 갸웃거리자, 주변에서 "違う！"(아니야!) "黙って！"(조용히 해!)가 동시에 터져 나왔다. 복도 쪽에서는 츠바사가 조용히 문 앞으로 걸어가는 발소리가 났다.'],
+    ['line','아야세 츠바사','ねえ、中の声聞こえてる？今は待ってて。すぐ終わるから。','있잖아, 안에서 목소리 들리지? 지금은 기다려줘. 금방 끝나니까.'],
+    ['narr','복도에 선 유저를 향해, 문 너머에서 부드럽지만 단호한 어조가 흘러나왔다.']
+  ]]}
+];
+function logBlockHTML(b){
+  if(b[0]==='user') return `<div class="log-user"><b>유저</b>${b[1]}</div>`;
+  if(b[0]==='narr') return `<div class="log-narr">${b[1]}</div>`;
+  if(b[0]==='solo') return `<div class="log-line"><div class="kr">"${b[1]}"</div></div>`;
+  if(b[0]==='line') return `<div class="log-line"><span class="who">${b[1]}</span><div class="jp">「${b[2]}」</div><div class="kr">${b[3]}</div></div>`;
+  if(b[0]==='num') return `<div class="log-num">CASE ${b[1]}</div>`;
+  return '';
+}
+
+const journalTabsEl = document.getElementById('journal-tabs');
+const journalCatTitleEl = document.getElementById('journal-cat-title');
+const journalPageCountEl = document.getElementById('journal-page-count');
+const journalPageBodyEl = document.getElementById('journal-page-body');
+const journalPrevBtn = document.getElementById('journal-prev');
+const journalNextBtn = document.getElementById('journal-next');
+const journalState = {cat:0, entry:0};
+
+LOG_DATA.forEach((cat,i)=>{
+  const tab = document.createElement('button');
+  tab.className = 'journal-tab' + (cat.bonus ? ' bonus' : '');
+  tab.type = 'button';
+  tab.innerHTML = `<span class="jt-title">${cat.bonus ? '★ ' : ''}${cat.title}</span><span class="jt-count">${cat.entries.length}건</span>`;
+  tab.addEventListener('click', ()=>{ journalState.cat = i; journalState.entry = 0; journalRender(); });
+  journalTabsEl.appendChild(tab);
+});
+journalPrevBtn.addEventListener('click', ()=>{
+  if(journalState.entry > 0){ journalState.entry--; journalRender(); }
+});
+journalNextBtn.addEventListener('click', ()=>{
+  const cat = LOG_DATA[journalState.cat];
+  if(journalState.entry < cat.entries.length - 1){ journalState.entry++; journalRender(); }
+});
+function journalRender(){
+  const cat = LOG_DATA[journalState.cat];
+  const entry = cat.entries[journalState.entry];
+  journalTabsEl.querySelectorAll('.journal-tab').forEach((t,i)=>t.classList.toggle('active', i===journalState.cat));
+  journalCatTitleEl.innerHTML = (cat.bonus ? '★ 보너스 · ' : '') + cat.title;
+  journalPageCountEl.textContent = `${journalState.entry + 1} / ${cat.entries.length}`;
+  journalPageBodyEl.style.animation = 'none';
+  void journalPageBodyEl.offsetWidth;
+  journalPageBodyEl.innerHTML = entry.map(logBlockHTML).join('');
+  journalPageBodyEl.style.animation = 'pageFlip .3s ease';
+  journalPrevBtn.disabled = journalState.entry === 0;
+  journalNextBtn.disabled = journalState.entry === cat.entries.length - 1;
+}
+journalRender();
+
+// ===== 캠퍼스 지도 인터랙션 =====
+// x,y는 지도 이미지 기준 위치(%), 실제 map.png 좌표에 맞춰 보정한 값입니다.
+const campusSpots = {
+  dorm:     {title:'기숙사', x:21, y:26, chips:['c','g','i'], text:'3층 복도, 여학생 방들 사이에 낀 유저의 방. 드라이기 소리, 의자 삐걱거리는 소리, 낮게 눌러 참는 목소리가 벽 하나를 사이에 두고 그대로 들린다.'},
+  dojo:     {title:'도장', x:13, y:40, chips:['k'], text:'아카네가 혼자 죽도를 휘두르는 시간. 불 꺼진 도장에 발소리와 나무 부딪는 소리만 규칙적으로 울린다.'},
+  sewing:   {title:'수예실', x:14, y:59, chips:['t'], text:'츠바사가 바늘을 쥐는 순간만 눈빛이 달라지는 곳. 평소의 부드러운 텐션이 사라지고 실 감기는 소리에만 집중한다.'},
+  main:     {title:'본관', x:46, y:23, chips:['k','i'], text:'복도를 걷다 옷깃 흐트러진 후배를 보면 아카네가 먼저 멈춰 선다. 창가 자리의 이츠키는 그 장면을 한 번 보고 다시 창밖으로 시선을 돌린다.'},
+  track:    {title:'운동장', x:46, y:51, chips:['g'], text:'아침 조회 다짐이 가장 크게 울리는 자리. 히나 목소리가 유독 튀고, 치어리딩부 연습도 종종 이쪽에서 벌어진다.'},
+  music:    {title:'음악실', x:68, y:71, chips:['c','g'], text:'유이와 히나가 붙으면 방 하나가 시끄러워지는 곳. 진지한 합주도 어느새 장난으로 번지고, 주변은 늘 그 소란에 휘말린다.'},
+  pool:     {title:'실내수영장', x:71, y:49, chips:['h'], text:'물 밖에서는 단답만 하던 미즈호가 레인에 들어서는 순간 표정이 달라진다. 첨벙거리는 소리 사이로 잠깐씩 집중한 얼굴이 스친다.'},
+  photo:    {title:'사진부', x:13, y:79, chips:['i'], text:'이츠키가 카메라를 쥐면 평소의 무심함이 사라지고 셔터를 누르는 손끝까지 조용히 날카로워진다. 암실 문 아래로 붉은 불빛이 새어나올 때가 있다.'},
+  gymnastics:{title:'체조부실', x:72, y:23, chips:['j'], text:'린이 친구들 사이에선 제일 시끄러운데, 유독 이 근처만 지나가면 목소리가 잦아든다는 소문이 있다. 매트 밟는 소리보다 친구들 놀리는 소리가 더 크게 들리는 날도 많다.'},
+  gate:     {title:'정문', x:41, y:85, chips:[], text:'소등 후 몰래 빠져나가 학교 앞 카페까지 가는 루틴이 있는 곳. 정문 경비는 허술하고, 다들 그 사실을 이미 알고 있다.'},
+  gate2:    {title:'후문', x:80, y:74, chips:[], text:'음악실 옆으로 난 작은 문. 인적이 드물어 혼자 있고 싶을 때 슬쩍 빠져나가기 좋은 자리로 통한다.'}
+};
+const hotspotLayer = document.getElementById('hotspot-layer');
+const mapWrapEl = document.querySelector('.campus-map-wrap');
+const mapCallout = document.createElement('div');
+mapCallout.className = 'map-callout';
+mapCallout.innerHTML = '<button type="button" class="callout-close">×</button><div class="spot-title"></div><div class="spot-text"></div>';
+mapWrapEl.appendChild(mapCallout);
+mapCallout.querySelector('.callout-close').addEventListener('click', ()=>mapCallout.classList.remove('show'));
+
+Object.keys(campusSpots).forEach(id=>{
+  const spot = campusSpots[id];
+  const dot = document.createElement('button');
+  dot.className = 'map-hotspot';
+  dot.type = 'button';
+  dot.dataset.spot = id;
+  dot.style.left = spot.x + '%';
+  dot.style.top = spot.y + '%';
+  dot.innerHTML = `<span class="hs-label">${spot.title}</span>`;
+  dot.addEventListener('click', ()=>selectCampusSpot(id, spot.x, spot.y));
+  hotspotLayer.appendChild(dot);
+});
+
+function placeCallout(xPct, yPct){
+  const rect = mapWrapEl.getBoundingClientRect();
+  const calloutW = Math.min(340, rect.width * 0.72);
+  const px = rect.width * xPct / 100;
+  const py = rect.height * yPct / 100;
+  let left = px - calloutW / 2;
+  left = Math.max(8, Math.min(left, rect.width - calloutW - 8));
+  mapCallout.style.width = calloutW + 'px';
+  mapCallout.style.left = left + 'px';
+  if(py > rect.height * 0.4){
+    mapCallout.style.top = 'auto';
+    mapCallout.style.bottom = (rect.height - py + 18) + 'px';
+  } else {
+    mapCallout.style.bottom = 'auto';
+    mapCallout.style.top = (py + 18) + 'px';
+  }
+}
+function selectCampusSpot(id, xPct, yPct){
+  const spot = campusSpots[id];
+  hotspotLayer.querySelectorAll('.map-hotspot').forEach(d=>d.classList.toggle('active', d.dataset.spot===id));
+  const chipsHTML = spot.chips.map(code=>{
+    const ch = characters.find(c=>c.code===code);
+    return ch ? `<span class="spot-chip" style="background:${ch.color}">${ch.short}</span>` : '';
+  }).join('');
+  mapCallout.querySelector('.spot-title').innerHTML = spot.title + chipsHTML;
+  mapCallout.querySelector('.spot-text').textContent = spot.text;
+  mapCallout.classList.add('show');
+  if(typeof xPct === 'number') placeCallout(xPct, yPct);
+}
+
+
+// ===== 일과표 인터랙션 =====
+const daySnapshots = {
+  '0700':['알람보다 히나 목소리가 먼저 복도에 울린다.','미유는 이미 나와서 세면대 줄부터 서 있는 편.','리오는 마지막 순간까지 버티다 뛰쳐나온다.','이츠키는 늘 정위치, 표정 변화 없이 서 있다.'],
+  '0730':['배가 고픈 린은 종 치자마자 제일 먼저 줄을 선다.','리오는 늦게 와서 반찬 없다고 투덜댄다.','미유는 자기 몫을 슬쩍 옆으로 밀어준다.','미즈호는 말없이 빠르게 먹고 먼저 일어난다.'],
+  'class':['이츠키는 창가 자리에서 수업 절반은 딴생각.','미즈호는 필기 없이도 성적은 늘 상위권.','유이는 옆자리랑 쪽지 주고받다 걸린다.','아카네는 맨 앞줄, 판서를 한 글자도 놓치지 않는다.'],
+  'club':['도장에서는 아카네가 후배 자세를 잡아준다.','음악실에서는 유이와 히나 콤비가 한바탕 소란을 만든다.','이츠키는 사진부실에서만 표정이 달라진다.','수영장에서는 미즈호가 물속에서만 말이 많아진다.'],
+  '1800':['히이라기가 그날 부활동 얘기를 신나게 늘어놓는다.','미즈호는 대체로 듣기만 한다.','린은 친구들 사이에서 제일 시끄럽다.','미유는 남은 반찬을 조용히 정리해준다.'],
+  'study':['미유는 서랍에 단것을 몰래 숨겨둔다.','이츠키 책상엔 헤어케어 용품 카탈로그가 펼쳐져 있을 확률이 높다.','리오는 내일 방송 원고를 혼자 그려본다.','유이는 30분마다 한 번씩 몸을 비튼다.'],
+  '2200':['불 꺼진 복도, 몰래 카페로 빠져나가는 발소리.','히나의 코고는 소리가 벽 너머까지 들린다.','이츠키 방 불빛만 늦게까지 켜져 있다.','미유는 제일 마지막에 잠든다.']
+};
+const ttInfo = document.getElementById('tt-info');
+let ttActivePeriod = null;
+let ttIndex = 0;
+document.querySelectorAll('#timeline-list li').forEach(li=>{
+  li.addEventListener('click', ()=>{
+    document.querySelectorAll('#timeline-list li').forEach(l=>l.classList.remove('active'));
+    li.classList.add('active');
+    const period = li.dataset.period;
+    const items = daySnapshots[period] || [];
+    if(ttActivePeriod === period){
+      ttIndex = (ttIndex + 1) % items.length;
+    } else {
+      ttActivePeriod = period;
+      ttIndex = 0;
+    }
+    ttInfo.innerHTML = `<div class="tt-line">${items[ttIndex] || ''}</div><div class="tt-step">${ttIndex + 1} / ${items.length} · 다시 누르면 다음 장면</div>`;
+  });
+});
+
+
+vnRender();
+</script>
+
+</body>
+</html>
